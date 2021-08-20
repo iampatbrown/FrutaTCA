@@ -1,5 +1,4 @@
-import AppCore
-import AppSwiftUI
+import AppFeature
 import AuthenticationAppleIDClient
 import ComposableArchitecture
 import NutritionFactFileClient

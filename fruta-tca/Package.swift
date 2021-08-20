@@ -9,8 +9,7 @@ let package = Package(
   products: [
     .library(name: "AccountCore", targets: ["AccountCore"]),
     .library(name: "AccountSwiftUI", targets: ["AccountSwiftUI"]),
-    .library(name: "AppCore", targets: ["AppCore"]),
-    .library(name: "AppSwiftUI", targets: ["AppSwiftUI"]),
+    .library(name: "AppFeature", targets: ["AppFeature"]),
     .library(name: "AuthenticationAppleIDClient", targets: ["AuthenticationAppleIDClient"]),
     .library(name: "AuthenticationClient", targets: ["AuthenticationClient"]),
     .library(name: "FavoriteCore", targets: ["FavoriteCore"]),
@@ -57,7 +56,7 @@ let package = Package(
       ]
     ),
     .target(
-      name: "AppCore",
+      name: "AppFeature",
       dependencies: [
         "AccountCore",
         "AuthenticationClient",
@@ -68,14 +67,7 @@ let package = Package(
         "SmoothiesCore",
         "StoreKitClient",
         "StoreKitCore",
-        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-      ]
-    ),
-    .target(
-      name: "AppSwiftUI",
-      dependencies: [
         "AccountSwiftUI",
-        "AppCore",
         "RecipesSwiftUI",
         "SmoothiesSwiftUI",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
