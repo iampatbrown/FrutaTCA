@@ -17,6 +17,7 @@
 		237783CE26CC8E08006F2336 /* OrderSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 237783CD26CC8E08006F2336 /* OrderSwiftUI */; };
 		237783D026CC8E0E006F2336 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 237783CF26CC8E0E006F2336 /* ComposableArchitecture */; };
 		237BA8F326D06E38009C48B6 /* AppFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 237BA8F226D06E38009C48B6 /* AppFeature */; };
+		237BA8F526D07F4F009C48B6 /* AuthenticationClient in Frameworks */ = {isa = PBXBuildFile; productRef = 237BA8F426D07F4F009C48B6 /* AuthenticationClient */; };
 		237E2A6726CDD50B00A1A084 /* RewardsPreviewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237E2A6626CDD50B00A1A084 /* RewardsPreviewApp.swift */; };
 		237E2A7326CDD51B00A1A084 /* AccountCore in Frameworks */ = {isa = PBXBuildFile; productRef = 237E2A7226CDD51B00A1A084 /* AccountCore */; };
 		237E2A7526CDD51E00A1A084 /* AccountSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 237E2A7426CDD51E00A1A084 /* AccountSwiftUI */; };
@@ -24,7 +25,6 @@
 		237E2A7926CDD6B100A1A084 /* AuthenticationAppleIDClient in Frameworks */ = {isa = PBXBuildFile; productRef = 237E2A7826CDD6B100A1A084 /* AuthenticationAppleIDClient */; };
 		237E2A7B26CDD6B100A1A084 /* AuthenticationClient in Frameworks */ = {isa = PBXBuildFile; productRef = 237E2A7A26CDD6B100A1A084 /* AuthenticationClient */; };
 		237E2A7E26CE04BD00A1A084 /* NutritionFactFileClient in Frameworks */ = {isa = PBXBuildFile; productRef = 237E2A7D26CE04BD00A1A084 /* NutritionFactFileClient */; };
-		237E2A8026CE04D100A1A084 /* AuthenticationAppleIDClient in Frameworks */ = {isa = PBXBuildFile; productRef = 237E2A7F26CE04D100A1A084 /* AuthenticationAppleIDClient */; };
 		238B61FE26CB3E060066EBD5 /* SmoothiesCore in Frameworks */ = {isa = PBXBuildFile; productRef = 238B61FD26CB3E060066EBD5 /* SmoothiesCore */; };
 		238B620026CB420B0066EBD5 /* NutritionFactFileClient in Frameworks */ = {isa = PBXBuildFile; productRef = 238B61FF26CB420B0066EBD5 /* NutritionFactFileClient */; };
 		238B620826CB7DE90066EBD5 /* RecipeListPreviewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238B620726CB7DE90066EBD5 /* RecipeListPreviewApp.swift */; };
@@ -71,11 +71,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				237E2A8026CE04D100A1A084 /* AuthenticationAppleIDClient in Frameworks */,
 				237E2A7E26CE04BD00A1A084 /* NutritionFactFileClient in Frameworks */,
 				237BA8F326D06E38009C48B6 /* AppFeature in Frameworks */,
 				23D0018026CF58C30054BD5D /* StoreKitClient in Frameworks */,
 				230CDA3526C74DB6006A0949 /* ComposableArchitecture in Frameworks */,
+				237BA8F526D07F4F009C48B6 /* AuthenticationClient in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,9 +276,9 @@
 			packageProductDependencies = (
 				230CDA3426C74DB6006A0949 /* ComposableArchitecture */,
 				237E2A7D26CE04BD00A1A084 /* NutritionFactFileClient */,
-				237E2A7F26CE04D100A1A084 /* AuthenticationAppleIDClient */,
 				23D0017F26CF58C30054BD5D /* StoreKitClient */,
 				237BA8F226D06E38009C48B6 /* AppFeature */,
+				237BA8F426D07F4F009C48B6 /* AuthenticationClient */,
 			);
 			productName = "FrutaTCA (iOS)";
 			productReference = 230CDA1D26C74CA2006A0949 /* FrutaTCA.app */;
@@ -1240,6 +1240,10 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = AppFeature;
 		};
+		237BA8F426D07F4F009C48B6 /* AuthenticationClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AuthenticationClient;
+		};
 		237E2A7226CDD51B00A1A084 /* AccountCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AccountCore;
@@ -1264,10 +1268,6 @@
 		237E2A7D26CE04BD00A1A084 /* NutritionFactFileClient */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NutritionFactFileClient;
-		};
-		237E2A7F26CE04D100A1A084 /* AuthenticationAppleIDClient */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = AuthenticationAppleIDClient;
 		};
 		238B61FD26CB3E060066EBD5 /* SmoothiesCore */ = {
 			isa = XCSwiftPackageProductDependency;

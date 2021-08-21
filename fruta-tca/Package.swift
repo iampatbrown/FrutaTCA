@@ -9,7 +9,6 @@ let package = Package(
   products: [
     .library(name: "AccountCore", targets: ["AccountCore"]),
     .library(name: "AppFeature", targets: ["AppFeature"]),
-    .library(name: "AuthenticationAppleIDClient", targets: ["AuthenticationAppleIDClient"]),
     .library(name: "AuthenticationClient", targets: ["AuthenticationClient"]),
     .library(name: "FavoriteCore", targets: ["FavoriteCore"]),
     .library(name: "FavoriteSwiftUI", targets: ["FavoriteSwiftUI"]),
@@ -66,13 +65,6 @@ let package = Package(
     .target(
       name: "AuthenticationClient",
       dependencies: [
-        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-      ]
-    ),
-    .target(
-      name: "AuthenticationAppleIDClient",
-      dependencies: [
-        "AuthenticationClient",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),

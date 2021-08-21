@@ -1,4 +1,4 @@
-import AccountSwiftUI
+import AccountCore
 import AppCore
 import ComposableArchitecture
 import RecipesSwiftUI

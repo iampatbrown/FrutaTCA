@@ -1,5 +1,5 @@
 import AppFeature
-import AuthenticationAppleIDClient
+import AuthenticationClient
 import ComposableArchitecture
 import NutritionFactFileClient
 import StoreKitClient
