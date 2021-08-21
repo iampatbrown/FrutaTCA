@@ -9,11 +9,19 @@ import SwiftUI
 
 public struct AppView: View {
   let store: Store<AppState, AppAction>
-  @ObservedObject var viewStore: ViewStore<AppState, AppAction>
+  @ObservedObject var viewStore: ViewStore<ViewState, AppAction>
+
+  struct ViewState: Equatable {
+    init(state: AppState) {
+      self.navigation = state.navigation
+    }
+
+    var navigation: TabNavigationState
+  }
 
   public init(store: Store<AppState, AppAction>) {
     self.store = store
-    self.viewStore = ViewStore(store)
+    self.viewStore = ViewStore(store.scope(state: ViewState.init))
   }
 
   public var body: some View {
