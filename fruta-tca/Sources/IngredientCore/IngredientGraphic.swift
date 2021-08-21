@@ -1,4 +1,4 @@
-import NutritionFactSwiftUI
+import NutritionFactCore
 import SharedSwiftUI
 import SwiftUI
 

@@ -1,4 +1,3 @@
-import NutritionFactCore
 import SwiftUI
 
 // Not a fan of this

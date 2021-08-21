@@ -1,4 +1,3 @@
-import NutritionFactCore
 import SwiftUI
 
 public struct NutritionRow: View {
