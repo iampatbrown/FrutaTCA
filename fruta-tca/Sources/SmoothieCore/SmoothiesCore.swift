@@ -1,7 +1,6 @@
 import ComposableArchitecture
 import IngredientCore
 import NutritionFactClient
-import SmoothieCore
 
 public struct SmoothiesState: Equatable {
   public var smoothies: IdentifiedArrayOf<SmoothieState>

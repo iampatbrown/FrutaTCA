@@ -1,24 +1,22 @@
 import AppFeature
 import AuthenticationClient
-import ComposableArchitecture
+// import ComposableArchitecture
 import NutritionFactClient
 import StoreKitClient
 import SwiftUI
 
 struct RootView: View {
-  let store = Store(
-    initialState: AppState(),
-    reducer: appReducer,
-    environment: AppEnvironment(
-      authenticationClient: .live,
-      mainQueue: .main,
-      nutritionFacts: .live,
-      storeKit: .live
-    )
-  )
-
   var body: some View {
-    AppView(store: store)
+    AppView(store: .init(
+      initialState: AppState(),
+      reducer: appReducer,
+      environment: AppEnvironment(
+        authenticationClient: .live,
+        mainQueue: .main,
+        nutritionFacts: .live,
+        storeKit: .live
+      )
+    ))
   }
 }
 

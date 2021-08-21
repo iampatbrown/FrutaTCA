@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		230CDA2426C74CA2006A0949 /* FrutaTCAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CDA1626C74CA1006A0949 /* FrutaTCAApp.swift */; };
 		230CDA2526C74CA2006A0949 /* FrutaTCAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CDA1626C74CA1006A0949 /* FrutaTCAApp.swift */; };
-		230CDA3526C74DB6006A0949 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 230CDA3426C74DB6006A0949 /* ComposableArchitecture */; };
 		230CDA3726C74FB2006A0949 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CDA3626C74FB2006A0949 /* RootView.swift */; };
 		230CDA3826C74FB2006A0949 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CDA3626C74FB2006A0949 /* RootView.swift */; };
 		237783BF26CC8DD1006F2336 /* OrderPreviewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237783BE26CC8DD1006F2336 /* OrderPreviewApp.swift */; };
@@ -34,6 +33,9 @@
 		23D0018026CF58C30054BD5D /* StoreKitClient in Frameworks */ = {isa = PBXBuildFile; productRef = 23D0017F26CF58C30054BD5D /* StoreKitClient */; };
 		23D6148A26D0885C007A6672 /* RecipesFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 23D6148926D0885C007A6672 /* RecipesFeature */; };
 		23D6148C26D0886B007A6672 /* RecipesFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 23D6148B26D0886B007A6672 /* RecipesFeature */; };
+		23D6148E26D090D1007A6672 /* MenuFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 23D6148D26D090D1007A6672 /* MenuFeature */; };
+		23D6149026D090D6007A6672 /* FavoritesFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 23D6148F26D090D6007A6672 /* FavoritesFeature */; };
+		23D6149226D09208007A6672 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 23D6149126D09208007A6672 /* ComposableArchitecture */; };
 		23E2178126CB7E200045E90F /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 23E2178026CB7E200045E90F /* ComposableArchitecture */; };
 		23E9011026CF03ED00CC5B71 /* StoreKitPlaygroundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E9010F26CF03ED00CC5B71 /* StoreKitPlaygroundApp.swift */; };
 		23E9011C26CF03FF00CC5B71 /* StoreKitClient in Frameworks */ = {isa = PBXBuildFile; productRef = 23E9011B26CF03FF00CC5B71 /* StoreKitClient */; };
@@ -70,9 +72,11 @@
 				237BA8F326D06E38009C48B6 /* AppFeature in Frameworks */,
 				23D0018026CF58C30054BD5D /* StoreKitClient in Frameworks */,
 				237BA8F926D08351009C48B6 /* NutritionFactClient in Frameworks */,
-				230CDA3526C74DB6006A0949 /* ComposableArchitecture in Frameworks */,
+				23D6148E26D090D1007A6672 /* MenuFeature in Frameworks */,
 				237BA8F526D07F4F009C48B6 /* AuthenticationClient in Frameworks */,
 				23D6148A26D0885C007A6672 /* RecipesFeature in Frameworks */,
+				23D6149226D09208007A6672 /* ComposableArchitecture in Frameworks */,
+				23D6149026D090D6007A6672 /* FavoritesFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,12 +270,14 @@
 			);
 			name = "FrutaTCA (iOS)";
 			packageProductDependencies = (
-				230CDA3426C74DB6006A0949 /* ComposableArchitecture */,
 				23D0017F26CF58C30054BD5D /* StoreKitClient */,
 				237BA8F226D06E38009C48B6 /* AppFeature */,
 				237BA8F426D07F4F009C48B6 /* AuthenticationClient */,
 				237BA8F826D08351009C48B6 /* NutritionFactClient */,
 				23D6148926D0885C007A6672 /* RecipesFeature */,
+				23D6148D26D090D1007A6672 /* MenuFeature */,
+				23D6148F26D090D6007A6672 /* FavoritesFeature */,
+				23D6149126D09208007A6672 /* ComposableArchitecture */,
 			);
 			productName = "FrutaTCA (iOS)";
 			productReference = 230CDA1D26C74CA2006A0949 /* FrutaTCA.app */;
@@ -1206,11 +1212,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		230CDA3426C74DB6006A0949 /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 230CDA3326C74DB6006A0949 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
-		};
 		237783CB26CC8E03006F2336 /* OrderCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = OrderCore;
@@ -1281,6 +1282,19 @@
 		23D6148B26D0886B007A6672 /* RecipesFeature */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RecipesFeature;
+		};
+		23D6148D26D090D1007A6672 /* MenuFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MenuFeature;
+		};
+		23D6148F26D090D6007A6672 /* FavoritesFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FavoritesFeature;
+		};
+		23D6149126D09208007A6672 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 230CDA3326C74DB6006A0949 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
 		};
 		23E2178026CB7E200045E90F /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;

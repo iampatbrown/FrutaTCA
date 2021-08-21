@@ -2,7 +2,8 @@ import AccountCore
 import ComposableArchitecture
 import RecipesFeature
 import SharedSwiftUI
-import SmoothiesSwiftUI
+import MenuFeature
+import FavoritesFeature
 import SwiftUI
 
 public struct AppView: View {
@@ -30,7 +31,7 @@ public struct AppView: View {
       )
     ) {
       NavigationView {
-        SmoothieMenu(store: self.store.scope(state: \.menu, action: AppAction.menu))
+        MenuFeatureView(store: self.store.scope(state: \.menu, action: AppAction.menu))
       }
       .tabItem {
         let menuText = Text("Menu", comment: "Smoothie menu tab title")
@@ -43,7 +44,7 @@ public struct AppView: View {
       .tag(TabNavigationState.Route.Tag.menu)
 
       NavigationView {
-        FavoriteSmoothies(store: self.store.scope(state: \.favorites, action: AppAction.favorites))
+        FavoritesFeatureView(store: self.store.scope(state: \.favorites, action: AppAction.favorites))
       }
       .tabItem {
         Label {

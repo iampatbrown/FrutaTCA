@@ -1,7 +1,6 @@
 import ComposableArchitecture
 import NutritionFactClient
-import SmoothiesCore
-import SmoothiesSwiftUI
+import SmoothieCore
 import SwiftUI
 
 @main

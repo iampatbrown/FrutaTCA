@@ -3,8 +3,9 @@ import AuthenticationClient
 import ComposableArchitecture
 import NutritionFactClient
 import RecipesFeature
+import MenuFeature
+import FavoritesFeature
 import SmoothieCore
-import SmoothiesCore
 import StoreKitClient
 import StoreKitCore
 
@@ -14,9 +15,9 @@ public struct AppState: Equatable {
   public var navigation: TabNavigationState
 
   private var menuSelection: Smoothie.ID?
-  public var menu: SmoothiesState {
+  public var menu: MenuFeatureState {
     get {
-      SmoothiesState(
+      MenuFeatureState(
         smoothies: self.smoothies,
         selection: self.menuSelection,
         searchQuery: self.searchQuery
@@ -30,9 +31,9 @@ public struct AppState: Equatable {
   }
 
   private var favoritesSelection: Smoothie.ID?
-  public var favorites: SmoothiesState {
+  public var favorites: FavoritesFeatureState {
     get {
-      SmoothiesState(
+      FavoritesFeatureState(
         smoothies: self.smoothies,
         selection: self.favoritesSelection,
         searchQuery: self.searchQuery

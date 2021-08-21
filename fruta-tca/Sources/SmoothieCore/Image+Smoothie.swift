@@ -1,4 +1,3 @@
-import SmoothieCore
 import SwiftUI
 
 extension Image {

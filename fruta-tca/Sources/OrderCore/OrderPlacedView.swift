@@ -1,7 +1,7 @@
 import AuthenticationServices
 import ComposableArchitecture
 import SharedSwiftUI
-import SmoothieSwiftUI
+import SmoothieCore
 import SwiftUI
 
 public struct OrderPlacedView: View {

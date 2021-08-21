@@ -1,5 +1,3 @@
-import SmoothieCore
-import SmoothieSwiftUI
 import SwiftUI
 
 public struct SmoothieRow: View {

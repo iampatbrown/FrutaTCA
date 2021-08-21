@@ -1,11 +1,16 @@
 import ComposableArchitecture
-import SmoothiesCore
+import SmoothieCore
 import SwiftUI
 
-public struct FavoriteSmoothies: View {
-  let store: Store<SmoothiesState, SmoothiesAction>
+public typealias FavoritesFeatureState = SmoothiesState
+public typealias FavoritesFeatureAction = SmoothiesAction
+public typealias FavoritesFeatureEnvironment = SmoothiesEnvironment
+public let favoritesFeatureReducer = smoothiesReducer
 
-  public init(store: Store<SmoothiesState, SmoothiesAction>) {
+public struct FavoritesFeatureView: View {
+  let store: Store<FavoritesFeatureState, FavoritesFeatureAction>
+
+  public init(store: Store<FavoritesFeatureState, FavoritesFeatureAction>) {
     self.store = store.scope(state: \.filteringFavorites)
   }
 
@@ -32,7 +37,7 @@ public struct FavoriteSmoothies: View {
   }
 }
 
-extension SmoothiesState {
+extension FavoritesFeatureState {
   var filteringFavorites: Self {
     .init(smoothies: favoriteSmoothies, selection: selection, searchQuery: searchQuery)
   }

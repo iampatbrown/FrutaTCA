@@ -1,8 +1,5 @@
 import ComposableArchitecture
 import IngredientCore
-import SmoothieCore
-import SmoothiesCore
-import SmoothieSwiftUI
 import SwiftUI
 
 public struct SmoothieList: View {

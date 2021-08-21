@@ -1,4 +1,3 @@
-import SmoothieCore
 import SwiftUI
 
 struct SmoothieHeaderView: View {

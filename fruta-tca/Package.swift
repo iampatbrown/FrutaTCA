@@ -11,16 +11,15 @@ let package = Package(
     .library(name: "AppFeature", targets: ["AppFeature"]),
     .library(name: "AuthenticationClient", targets: ["AuthenticationClient"]),
     .library(name: "FavoriteCore", targets: ["FavoriteCore"]),
+    .library(name: "FavoritesFeature", targets: ["FavoritesFeature"]),
     .library(name: "IngredientCore", targets: ["IngredientCore"]),
+    .library(name: "MenuFeature", targets: ["MenuFeature"]),
     .library(name: "NutritionFactClient", targets: ["NutritionFactClient"]),
     .library(name: "NutritionFactCore", targets: ["NutritionFactCore"]),
     .library(name: "OrderCore", targets: ["OrderCore"]),
     .library(name: "RecipesFeature", targets: ["RecipesFeature"]),
     .library(name: "SharedSwiftUI", targets: ["SharedSwiftUI"]),
     .library(name: "SmoothieCore", targets: ["SmoothieCore"]),
-    .library(name: "SmoothieSwiftUI", targets: ["SmoothieSwiftUI"]),
-    .library(name: "SmoothiesCore", targets: ["SmoothiesCore"]),
-    .library(name: "SmoothiesSwiftUI", targets: ["SmoothiesSwiftUI"]),
     .library(name: "StoreKitClient", targets: ["StoreKitClient"]),
     .library(name: "StoreKitCore", targets: ["StoreKitCore"]),
   ],
@@ -42,13 +41,12 @@ let package = Package(
       dependencies: [
         "AccountCore",
         "AuthenticationClient",
+        "FavoritesFeature",
         "NutritionFactClient",
         "RecipesFeature",
-        "SmoothieCore",
-        "SmoothiesCore",
+        "MenuFeature",
         "StoreKitClient",
         "StoreKitCore",
-        "SmoothiesSwiftUI",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),
@@ -65,6 +63,13 @@ let package = Package(
       ]
     ),
     .target(
+      name: "FavoritesFeature",
+      dependencies: [
+        "SmoothieCore",
+        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+      ]
+    ),
+    .target(
       name: "IngredientCore",
       dependencies: [
         "NutritionFactCore",
@@ -72,6 +77,13 @@ let package = Package(
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ],
       resources: [.copy("Assets.xcassets")]
+    ),
+    .target(
+      name: "MenuFeature",
+      dependencies: [
+        "SmoothieCore",
+        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+      ]
     ),
     .target(
       name: "NutritionFactClient",
@@ -82,15 +94,13 @@ let package = Package(
     ),
     .target(
       name: "NutritionFactCore",
-      dependencies: [
-      ]
+      dependencies: [      ]
     ),
     .target(
       name: "OrderCore",
       dependencies: [
         "SmoothieCore",
         "SharedSwiftUI",
-        "SmoothieSwiftUI",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),
@@ -98,13 +108,10 @@ let package = Package(
       name: "RecipesFeature",
       dependencies: [
         "IngredientCore",
-        "SmoothieCore",
-        "SmoothieSwiftUI",
         "NutritionFactClient",
+        "SmoothieCore",
         "StoreKitClient",
         "StoreKitCore",
-        "SmoothiesSwiftUI",
-        "SmoothiesCore",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ],
       resources: [.copy("Assets.xcassets")]
@@ -122,37 +129,8 @@ let package = Package(
         "NutritionFactClient",
         "NutritionFactCore",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-      ]
-    ),
-    .target(
-      name: "SmoothieSwiftUI",
-      dependencies: [
-        "FavoriteCore",
-        "IngredientCore",
-        "SmoothieCore",
-        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ],
       resources: [.process("Assets.xcassets")]
-    ),
-    .target(
-      name: "SmoothiesCore",
-      dependencies: [
-        "IngredientCore",
-        "NutritionFactClient",
-        "NutritionFactCore",
-        "SmoothieCore",
-        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-      ]
-    ),
-    .target(
-      name: "SmoothiesSwiftUI",
-      dependencies: [
-        "IngredientCore",
-        "SmoothieCore",
-        "SmoothieSwiftUI",
-        "SmoothiesCore",
-        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-      ]
     ),
     .target(
       name: "StoreKitClient",
