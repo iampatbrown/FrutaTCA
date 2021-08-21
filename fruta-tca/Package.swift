@@ -15,7 +15,6 @@ let package = Package(
     .library(name: "NutritionFactClient", targets: ["NutritionFactClient"]),
     .library(name: "NutritionFactCore", targets: ["NutritionFactCore"]),
     .library(name: "OrderCore", targets: ["OrderCore"]),
-    .library(name: "OrderSwiftUI", targets: ["OrderSwiftUI"]),
     .library(name: "RecipeCore", targets: ["RecipeCore"]),
     .library(name: "RecipeSwiftUI", targets: ["RecipeSwiftUI"]),
     .library(name: "RecipesCore", targets: ["RecipesCore"]),
@@ -95,13 +94,6 @@ let package = Package(
       name: "OrderCore",
       dependencies: [
         "SmoothieCore",
-        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-      ]
-    ),
-    .target(
-      name: "OrderSwiftUI",
-      dependencies: [
-        "OrderCore",
         "SharedSwiftUI",
         "SmoothieSwiftUI",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),

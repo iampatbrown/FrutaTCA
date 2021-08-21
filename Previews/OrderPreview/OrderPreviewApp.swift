@@ -1,6 +1,5 @@
 import ComposableArchitecture
 import OrderCore
-import OrderSwiftUI
 import SwiftUI
 
 @main
