@@ -32,11 +32,9 @@
 		23A496C126CA60B300C3821B /* SmoothiesSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 23A496C026CA60B300C3821B /* SmoothiesSwiftUI */; };
 		23D0016126CF07D10054BD5D /* StoreKit.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 237E2A8226CE283800A1A084 /* StoreKit.storekit */; };
 		23D0018026CF58C30054BD5D /* StoreKitClient in Frameworks */ = {isa = PBXBuildFile; productRef = 23D0017F26CF58C30054BD5D /* StoreKitClient */; };
+		23D6148A26D0885C007A6672 /* RecipesFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 23D6148926D0885C007A6672 /* RecipesFeature */; };
+		23D6148C26D0886B007A6672 /* RecipesFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 23D6148B26D0886B007A6672 /* RecipesFeature */; };
 		23E2178126CB7E200045E90F /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 23E2178026CB7E200045E90F /* ComposableArchitecture */; };
-		23E2178326CB7E260045E90F /* RecipeCore in Frameworks */ = {isa = PBXBuildFile; productRef = 23E2178226CB7E260045E90F /* RecipeCore */; };
-		23E2178526CB7E290045E90F /* RecipeSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 23E2178426CB7E290045E90F /* RecipeSwiftUI */; };
-		23E2178926CB88800045E90F /* RecipesCore in Frameworks */ = {isa = PBXBuildFile; productRef = 23E2178826CB88800045E90F /* RecipesCore */; };
-		23E2178B26CB88B60045E90F /* RecipesSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 23E2178A26CB88B60045E90F /* RecipesSwiftUI */; };
 		23E9011026CF03ED00CC5B71 /* StoreKitPlaygroundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E9010F26CF03ED00CC5B71 /* StoreKitPlaygroundApp.swift */; };
 		23E9011C26CF03FF00CC5B71 /* StoreKitClient in Frameworks */ = {isa = PBXBuildFile; productRef = 23E9011B26CF03FF00CC5B71 /* StoreKitClient */; };
 		23E9011E26CF03FF00CC5B71 /* StoreKitCore in Frameworks */ = {isa = PBXBuildFile; productRef = 23E9011D26CF03FF00CC5B71 /* StoreKitCore */; };
@@ -74,6 +72,7 @@
 				237BA8F926D08351009C48B6 /* NutritionFactClient in Frameworks */,
 				230CDA3526C74DB6006A0949 /* ComposableArchitecture in Frameworks */,
 				237BA8F526D07F4F009C48B6 /* AuthenticationClient in Frameworks */,
+				23D6148A26D0885C007A6672 /* RecipesFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,11 +108,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				237BA8FB26D083B8009C48B6 /* NutritionFactClient in Frameworks */,
-				23E2178926CB88800045E90F /* RecipesCore in Frameworks */,
 				23E2178126CB7E200045E90F /* ComposableArchitecture in Frameworks */,
-				23E2178526CB7E290045E90F /* RecipeSwiftUI in Frameworks */,
-				23E2178B26CB88B60045E90F /* RecipesSwiftUI in Frameworks */,
-				23E2178326CB7E260045E90F /* RecipeCore in Frameworks */,
+				23D6148C26D0886B007A6672 /* RecipesFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +271,7 @@
 				237BA8F226D06E38009C48B6 /* AppFeature */,
 				237BA8F426D07F4F009C48B6 /* AuthenticationClient */,
 				237BA8F826D08351009C48B6 /* NutritionFactClient */,
+				23D6148926D0885C007A6672 /* RecipesFeature */,
 			);
 			productName = "FrutaTCA (iOS)";
 			productReference = 230CDA1D26C74CA2006A0949 /* FrutaTCA.app */;
@@ -356,11 +353,8 @@
 			name = RecipeListPreview;
 			packageProductDependencies = (
 				23E2178026CB7E200045E90F /* ComposableArchitecture */,
-				23E2178226CB7E260045E90F /* RecipeCore */,
-				23E2178426CB7E290045E90F /* RecipeSwiftUI */,
-				23E2178826CB88800045E90F /* RecipesCore */,
-				23E2178A26CB88B60045E90F /* RecipesSwiftUI */,
 				237BA8FA26D083B8009C48B6 /* NutritionFactClient */,
+				23D6148B26D0886B007A6672 /* RecipesFeature */,
 			);
 			productName = RecipeListPreview;
 			productReference = 238B620526CB7DE90066EBD5 /* RecipeListPreview.app */;
@@ -1280,26 +1274,18 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = StoreKitClient;
 		};
+		23D6148926D0885C007A6672 /* RecipesFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RecipesFeature;
+		};
+		23D6148B26D0886B007A6672 /* RecipesFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RecipesFeature;
+		};
 		23E2178026CB7E200045E90F /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 230CDA3326C74DB6006A0949 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
-		};
-		23E2178226CB7E260045E90F /* RecipeCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RecipeCore;
-		};
-		23E2178426CB7E290045E90F /* RecipeSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RecipeSwiftUI;
-		};
-		23E2178826CB88800045E90F /* RecipesCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RecipesCore;
-		};
-		23E2178A26CB88B60045E90F /* RecipesSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RecipesSwiftUI;
 		};
 		23E9011B26CF03FF00CC5B71 /* StoreKitClient */ = {
 			isa = XCSwiftPackageProductDependency;

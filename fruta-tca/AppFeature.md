@@ -17,6 +17,7 @@ If so, how do we ensure they are isolated/don't distract from the existing Featu
 [] ViewState and ViewAction
 
 ## Notes
+- IngredientCore and NutritionFactCore? Should core indicate the it involves composable architecture?
 
 
 

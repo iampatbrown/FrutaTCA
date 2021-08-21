@@ -1,6 +1,4 @@
 import ComposableArchitecture
-import RecipesCore
-import RecipeSwiftUI
 import SmoothiesSwiftUI
 import SwiftUI
 

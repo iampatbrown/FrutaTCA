@@ -1,9 +1,6 @@
 import ComposableArchitecture
 import NutritionFactClient
-import RecipeCore
-import RecipesCore
-import RecipesSwiftUI
-import RecipeSwiftUI
+import RecipesFeature
 import SwiftUI
 
 @main

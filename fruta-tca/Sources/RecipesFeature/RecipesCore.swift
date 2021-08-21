@@ -2,7 +2,6 @@ import ComposableArchitecture
 import Foundation
 import IngredientCore
 import NutritionFactClient
-import RecipeCore
 import SmoothieCore
 import StoreKit
 import StoreKitClient

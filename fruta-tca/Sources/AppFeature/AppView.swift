@@ -1,8 +1,6 @@
 import AccountCore
-import AppCore
 import ComposableArchitecture
-import RecipesSwiftUI
-import RecipeSwiftUI
+import RecipesFeature
 import SharedSwiftUI
 import SmoothiesSwiftUI
 import SwiftUI

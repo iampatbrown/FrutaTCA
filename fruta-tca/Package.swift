@@ -15,10 +15,7 @@ let package = Package(
     .library(name: "NutritionFactClient", targets: ["NutritionFactClient"]),
     .library(name: "NutritionFactCore", targets: ["NutritionFactCore"]),
     .library(name: "OrderCore", targets: ["OrderCore"]),
-    .library(name: "RecipeCore", targets: ["RecipeCore"]),
-    .library(name: "RecipeSwiftUI", targets: ["RecipeSwiftUI"]),
-    .library(name: "RecipesCore", targets: ["RecipesCore"]),
-    .library(name: "RecipesSwiftUI", targets: ["RecipesSwiftUI"]),
+    .library(name: "RecipesFeature", targets: ["RecipesFeature"]),
     .library(name: "SharedSwiftUI", targets: ["SharedSwiftUI"]),
     .library(name: "SmoothieCore", targets: ["SmoothieCore"]),
     .library(name: "SmoothieSwiftUI", targets: ["SmoothieSwiftUI"]),
@@ -46,13 +43,11 @@ let package = Package(
         "AccountCore",
         "AuthenticationClient",
         "NutritionFactClient",
-        "RecipeCore",
-        "RecipesCore",
+        "RecipesFeature",
         "SmoothieCore",
         "SmoothiesCore",
         "StoreKitClient",
         "StoreKitCore",
-        "RecipesSwiftUI",
         "SmoothiesSwiftUI",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
@@ -100,41 +95,16 @@ let package = Package(
       ]
     ),
     .target(
-      name: "RecipeCore",
-      dependencies: [
-        "SmoothieCore",
-        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-      ]
-    ),
-    .target(
-      name: "RecipeSwiftUI",
+      name: "RecipesFeature",
       dependencies: [
         "IngredientCore",
-        "RecipeCore",
         "SmoothieCore",
         "SmoothieSwiftUI",
-        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-      ],
-      resources: [.copy("Assets.xcassets")]
-    ),
-    .target(
-      name: "RecipesCore",
-      dependencies: [
-        "IngredientCore",
         "NutritionFactClient",
-        "RecipeCore",
-        "SmoothieCore",
         "StoreKitClient",
         "StoreKitCore",
-        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-      ]
-    ),
-    .target(
-      name: "RecipesSwiftUI",
-      dependencies: [
-        "RecipeSwiftUI",
-        "RecipesCore",
         "SmoothiesSwiftUI",
+        "SmoothiesCore",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ],
       resources: [.copy("Assets.xcassets")]

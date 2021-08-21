@@ -2,8 +2,7 @@ import AccountCore
 import AuthenticationClient
 import ComposableArchitecture
 import NutritionFactClient
-import RecipeCore
-import RecipesCore
+import RecipesFeature
 import SmoothieCore
 import SmoothiesCore
 import StoreKitClient
