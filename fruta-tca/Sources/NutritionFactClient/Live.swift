@@ -1,9 +1,8 @@
 import Foundation
-import NutritionFactClient
 import NutritionFactCore
 
 extension NutritionFactClient {
-  public static func file(path: String? = nil) -> Self { // TODO: use path
+  public static var live: Self { // TODO: use path
     let nutritionFacts: [String: NutritionFact] = {
       if let jsonURL = Bundle.module.url(
         forResource: "NutritionFacts/NutritionalItems",

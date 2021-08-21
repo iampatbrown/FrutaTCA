@@ -1,7 +1,7 @@
 import AppFeature
 import AuthenticationClient
 import ComposableArchitecture
-import NutritionFactFileClient
+import NutritionFactClient
 import StoreKitClient
 import SwiftUI
 
@@ -12,7 +12,7 @@ struct RootView: View {
     environment: AppEnvironment(
       authenticationClient: .live,
       mainQueue: .main,
-      nutritionFacts: .file(),
+      nutritionFacts: .live,
       storeKit: .live
     )
   )

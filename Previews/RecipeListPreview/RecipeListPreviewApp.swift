@@ -1,5 +1,5 @@
 import ComposableArchitecture
-import NutritionFactFileClient
+import NutritionFactClient
 import RecipeCore
 import RecipesCore
 import RecipesSwiftUI
@@ -11,7 +11,7 @@ struct RecipeListPreviewApp: App {
   let store = Store(
     initialState: RecipesState(),
     reducer: recipesReducer,
-    environment: RecipesEnvironment(mainQueue: .main, nutritionFacts: .file(), storeKit: .live)
+    environment: RecipesEnvironment(mainQueue: .main, nutritionFacts: .live, storeKit: .live)
   )
 
   var body: some Scene {

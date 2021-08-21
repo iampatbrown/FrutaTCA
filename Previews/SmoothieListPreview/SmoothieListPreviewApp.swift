@@ -1,5 +1,5 @@
 import ComposableArchitecture
-import NutritionFactFileClient
+import NutritionFactClient
 import SmoothiesCore
 import SmoothiesSwiftUI
 import SwiftUI
@@ -9,7 +9,7 @@ struct SmoothieListPreviewApp: App {
   let store = Store(
     initialState: SmoothiesState(),
     reducer: smoothiesReducer,
-    environment: SmoothiesEnvironment(nutritionFacts: .file())
+    environment: SmoothiesEnvironment(nutritionFacts: .live))
   )
 
   enum Tab {
