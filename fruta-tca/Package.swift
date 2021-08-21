@@ -11,9 +11,7 @@ let package = Package(
     .library(name: "AppFeature", targets: ["AppFeature"]),
     .library(name: "AuthenticationClient", targets: ["AuthenticationClient"]),
     .library(name: "FavoriteCore", targets: ["FavoriteCore"]),
-    .library(name: "FavoriteSwiftUI", targets: ["FavoriteSwiftUI"]),
     .library(name: "IngredientCore", targets: ["IngredientCore"]),
-    .library(name: "IngredientSwiftUI", targets: ["IngredientSwiftUI"]),
     .library(name: "NutritionFactClient", targets: ["NutritionFactClient"]),
     .library(name: "NutritionFactCore", targets: ["NutritionFactCore"]),
     .library(name: "NutritionFactFileClient", targets: ["NutritionFactFileClient"]),
@@ -75,30 +73,15 @@ let package = Package(
       ]
     ),
     .target(
-      name: "FavoriteSwiftUI",
-      dependencies: [
-        "FavoriteCore",
-        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-      ]
-    ),
-    .target(
       name: "IngredientCore",
       dependencies: [
         "NutritionFactCore",
-        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-      ]
-    ),
-    .target(
-      name: "IngredientSwiftUI",
-      dependencies: [
-        "IngredientCore",
         "NutritionFactSwiftUI",
         "SharedSwiftUI",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ],
       resources: [.copy("Assets.xcassets")]
     ),
-
     .target(
       name: "NutritionFactClient",
       dependencies: [
@@ -150,7 +133,6 @@ let package = Package(
       name: "RecipeSwiftUI",
       dependencies: [
         "IngredientCore",
-        "IngredientSwiftUI",
         "RecipeCore",
         "SmoothieCore",
         "SmoothieSwiftUI",
@@ -198,9 +180,8 @@ let package = Package(
     .target(
       name: "SmoothieSwiftUI",
       dependencies: [
-        "FavoriteSwiftUI",
+        "FavoriteCore",
         "IngredientCore",
-        "IngredientSwiftUI",
         "SmoothieCore",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ],

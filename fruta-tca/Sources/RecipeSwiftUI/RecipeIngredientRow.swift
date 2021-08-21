@@ -1,5 +1,4 @@
 import IngredientCore
-import IngredientSwiftUI
 import SwiftUI
 
 struct RecipeIngredientRow: View {

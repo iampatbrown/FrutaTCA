@@ -1,7 +1,6 @@
 import ComposableArchitecture
-import FavoriteSwiftUI
+import FavoriteCore
 import IngredientCore
-import IngredientSwiftUI
 import SmoothieCore
 import SwiftUI
 

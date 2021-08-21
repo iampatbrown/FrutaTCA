@@ -1,5 +1,4 @@
 import ComposableArchitecture
-import FavoriteCore
 import SwiftUI
 
 public struct FavoriteButton<ID>: View where ID: Hashable {

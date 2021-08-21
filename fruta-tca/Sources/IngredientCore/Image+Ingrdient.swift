@@ -1,4 +1,3 @@
-import IngredientCore
 import SwiftUI
 
 extension Image {

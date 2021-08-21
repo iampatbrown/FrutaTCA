@@ -18,7 +18,7 @@ public let bundle: Bundle = {
     currentResourceURL?.deletingLastPathComponent().deletingLastPathComponent(),
     currentResourceURL?.deletingLastPathComponent(),
   ]
-  .compactMap({ $0?.appendingPathComponent("fruta-tca_IngredientSwiftUI.bundle") })
+  .compactMap({ $0?.appendingPathComponent("fruta-tca_IngredientCore.bundle") })
   .compactMap(Bundle.init)
   .first else { fatalError("unable to find bundle") }
   return bundle

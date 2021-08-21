@@ -1,4 +1,3 @@
-import IngredientCore
 import NutritionFactSwiftUI
 import SharedSwiftUI
 import SwiftUI

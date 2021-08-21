@@ -1,4 +1,3 @@
-import IngredientCore
 import SharedSwiftUI
 import SwiftUI
 
