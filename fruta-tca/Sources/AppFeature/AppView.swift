@@ -113,16 +113,7 @@ public struct AppState: Equatable {
 }
 
 public enum AppAction: Equatable {
-  case addOrderToAccount
-  case clearUnstampedPoints
-  case createAccount
-  case onAppear
-  case orderSmoothie(Smoothie)
-  case redeemSmoothie(Smoothie)
-  case searchStringChanged(String)
-  case toggleFavorite(Smoothie)
   case setNavigation(AppState.Tab)
-
   case menu(SmoothieListAction)
   case favorites(SmoothieListAction)
   case rewards(RewardsAction)
@@ -169,44 +160,6 @@ public let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
   Reducer {
     state, action, environment in
     switch action {
-    case let .orderSmoothie(smoothie):
-      state.order = Order(smoothie: smoothie, points: 1, isReady: false)
-      return Effect(value: .addOrderToAccount)
-
-    case let .redeemSmoothie(smoothie):
-      guard var account = state.account, account.canRedeemFreeSmoothie else { return .none }
-      account.pointsSpent += 10
-      state.account = account
-      return Effect(value: .orderSmoothie(smoothie))
-
-    case let .toggleFavorite(smoothie):
-      if state.favoriteSmoothieIDs.contains(smoothie.id) {
-        state.favoriteSmoothieIDs.remove(smoothie.id)
-      } else {
-        state.favoriteSmoothieIDs.insert(smoothie.id)
-      }
-      return .none
-
-    case .clearUnstampedPoints:
-      state.account?.clearUnstampedPoints()
-      return .none
-
-    case .addOrderToAccount:
-      guard let order = state.order else { return .none }
-      state.account?.appendOrder(order)
-      return .none
-
-    case .createAccount:
-      guard state.account == nil else { return .none }
-      state.account = Account()
-      return Effect(value: .addOrderToAccount)
-
-    case let .searchStringChanged(searchString):
-      state.searchString = searchString
-      return .none
-    case .onAppear:
-      return .none
-
     case let .setNavigation(route):
       state.route = route
       return .none
@@ -306,9 +259,9 @@ public struct AppView: View {
           }
         }
         .tag(AppState.Tab.recipes)
-
-      }.navigationViewStyle(.stack)
-        .onAppear { viewStore.send(.recipes(.store(.onLaunch))) }
+      }
+      //      .navigationViewStyle(.stack)
+      .onAppear { viewStore.send(.recipes(.store(.onLaunch))) }
     }
   }
 }
