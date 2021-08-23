@@ -1,12 +1,117 @@
 import ComposableArchitecture
-import SmoothieCore
+import SharedModels
+import SharedUI
+import SmoothiesCore
+import StoreKit
+import StoreKitClient
 import SwiftUI
 
-public struct RecipeList: View {
-  let store: Store<RecipesState, RecipesAction>
-  @ObservedObject var viewStore: ViewStore<RecipesState, RecipesAction>
+public struct RecipeListState: Equatable {
+  public var account: Account?
+  public var favoriteSmoothieIDs: Set<Smoothie.ID>
+  public var searchString: String
+  public var selection: Smoothie.ID?
+  public var store: StoreKitState
 
-  public init(store: Store<RecipesState, RecipesAction>) {
+  public init(
+    account: Account? = nil,
+    favoriteSmoothieIDs: Set<Smoothie.ID> = [],
+    searchString: String = "",
+    selection: Smoothie.ID? = nil,
+    store: StoreKitState = .init()
+
+  ) {
+    self.account = account
+    self.favoriteSmoothieIDs = favoriteSmoothieIDs
+    self.searchString = searchString
+    self.selection = selection
+    self.store = store
+  }
+
+  public var allRecipesUnlocked: Bool { store.allRecipesUnlocked }
+  public var unlockAllRecipesProduct: Product? { store.unlockAllRecipesProduct }
+
+  public var listedSmoothies: [Smoothie] {
+    Smoothie.all(includingPaid: store.allRecipesUnlocked) // TODO: What's the plan here???
+      .filter { $0.matches(searchString) }
+      .sorted(by: { $0.title.localizedCompare($1.title) == .orderedAscending })
+  }
+
+  public var favoriteListedSmoothies: [Smoothie] {
+    listedSmoothies.filter { isFavorite($0.id) }
+  }
+
+  public var searchSuggestions: [Ingredient] {
+    Ingredient.all.filter {
+      $0.name.localizedCaseInsensitiveContains(searchString) &&
+        $0.name.localizedCaseInsensitiveCompare(searchString) != .orderedSame
+    }
+  }
+
+  func isFavorite(_ id: Smoothie.ID) -> Bool {
+    favoriteSmoothieIDs.contains(id)
+  }
+
+  mutating func toggleFavorite(_ id: Smoothie.ID) {
+    if favoriteSmoothieIDs.contains(id) {
+      favoriteSmoothieIDs.remove(id)
+    } else {
+      favoriteSmoothieIDs.insert(id)
+    }
+  }
+}
+
+public enum RecipeListAction: Equatable {
+  case searchStringChanged(String)
+  case setSelection(Smoothie.ID?)
+  case setIsFavorite(Smoothie.ID, Bool)
+  case store(StoreKitAction)
+}
+
+public struct RecipeListEnvironment {
+  public var storeKit: StoreKitClient
+
+  public init(storeKit: StoreKitClient) {
+    self.storeKit = storeKit
+  }
+}
+
+public let recipesReducer = Reducer<
+  RecipeListState,
+  RecipeListAction,
+  RecipeListEnvironment
+>.combine(
+  storeKitReducer.pullback(
+    state: \.store,
+    action: /RecipeListAction.store,
+    environment: { .init(storeKit: $0.storeKit) }
+  ),
+  Reducer { state, action, environment in
+    switch action {
+    case let .searchStringChanged(searchString):
+      state.searchString = searchString
+      return .none
+
+    case let .setSelection(selection):
+      state.selection = selection
+      return .none
+
+    case let .setIsFavorite(id, isFavorite):
+      guard isFavorite != state.isFavorite(id) else { return .none }
+      state.toggleFavorite(id)
+      return .none
+
+    case .store:
+      return .none
+    }
+  }
+)
+public struct RecipeList: View {
+  let store: Store<RecipeListState, RecipeListAction>
+
+  @ObservedObject var viewStore: ViewStore<RecipeListState, RecipeListAction>
+
+  public init(store: Store<RecipeListState, RecipeListAction>) {
     self.store = store
     self.viewStore = ViewStore(store)
   }
@@ -25,27 +130,24 @@ public struct RecipeList: View {
           .listSectionSeparator(.hidden)
         }
       #endif
-
-      ForEachStore(
-        store
-          .scope(
-            state: \.listedRecipes,
-            action: RecipesAction.recipe(id:action:)
+      ForEach(viewStore.listedSmoothies) { smoothie in
+        NavigationLink(
+          tag: smoothie.id,
+          selection: viewStore.binding(
+            get: \.selection,
+            send: RecipeListAction.setSelection
           )
-      ) { childStore in
-        WithViewStore(childStore) { childViewStore in
-          NavigationLink(
-            tag: childViewStore.id,
-            selection: viewStore.binding(
-              get: \.selection,
-              send: RecipesAction.setRecipe(selection:)
+        ) {
+          RecipeView(
+            smoothie: smoothie,
+            isFavorite: viewStore.binding(
+              get: { $0.isFavorite(smoothie.id) },
+              send: { RecipeListAction.setIsFavorite(smoothie.id, $0) }
             )
-          ) {
-            RecipeView(store: childStore)
-          } label: {
-            SmoothieRow(smoothie: childViewStore.smoothie)
-              .padding(.vertical, 5)
-          }
+          )
+        } label: {
+          SmoothieRow(smoothie: smoothie)
+            .padding(.vertical, 5)
         }
       }
     }
@@ -59,18 +161,28 @@ public struct RecipeList: View {
         }
       }
     #endif
-
     .navigationTitle(Text(
       "Recipes",
       comment: "Title of the 'recipes' app section showing the list of smoothie recipes."
     ))
       .animation(.spring(response: 1, dampingFraction: 1), value: viewStore.allRecipesUnlocked)
-      .searchable(text: viewStore.binding(get: \.searchQuery, send: RecipesAction.searchQueryChanged)) {
+      .accessibilityRotor(
+        "Favorite Smoothies",
+        entries: viewStore.favoriteListedSmoothies,
+        entryLabel: \.title
+      )
+      .accessibilityRotor("Smoothies", entries: viewStore.listedSmoothies, entryLabel: \.title)
+      .searchable(
+        text: viewStore.binding(
+          get: \.searchString,
+          send: RecipeListAction.searchStringChanged
+        )
+      ) {
         ForEach(viewStore.searchSuggestions) { suggestion in
-          Text(suggestion.name).searchCompletion(suggestion.name)
+          Text(suggestion.name)
+            .searchCompletion(suggestion.name)
         }
       }
-      .onAppear { viewStore.send(.onAppear) }
   }
 
   @ViewBuilder
@@ -95,3 +207,27 @@ public struct RecipeList: View {
     .transition(.scale.combined(with: .opacity))
   }
 }
+
+// struct RecipeList_Previews: PreviewProvider {
+//  static let unlocked: Model = {
+//    let store = Model()
+//    store.allRecipesUnlocked = true
+//    return store
+//  }()
+//
+//  static var previews: some View {
+//    Group {
+//      NavigationView {
+//        RecipeList()
+//      }
+//      .environmentObject(Model())
+//      .previewDisplayName("Locked")
+//
+//      NavigationView {
+//        RecipeList()
+//      }
+//      .environmentObject(unlocked)
+//      .previewDisplayName("Unlocked")
+//    }
+//  }
+// }

@@ -9,38 +9,11 @@
 /* Begin PBXBuildFile section */
 		230CDA2426C74CA2006A0949 /* FrutaTCAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CDA1626C74CA1006A0949 /* FrutaTCAApp.swift */; };
 		230CDA2526C74CA2006A0949 /* FrutaTCAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CDA1626C74CA1006A0949 /* FrutaTCAApp.swift */; };
-		230CDA3726C74FB2006A0949 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CDA3626C74FB2006A0949 /* RootView.swift */; };
-		230CDA3826C74FB2006A0949 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CDA3626C74FB2006A0949 /* RootView.swift */; };
-		237783BF26CC8DD1006F2336 /* OrderPreviewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237783BE26CC8DD1006F2336 /* OrderPreviewApp.swift */; };
-		237783CC26CC8E03006F2336 /* OrderCore in Frameworks */ = {isa = PBXBuildFile; productRef = 237783CB26CC8E03006F2336 /* OrderCore */; };
-		237783CE26CC8E08006F2336 /* OrderSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 237783CD26CC8E08006F2336 /* OrderSwiftUI */; };
-		237783D026CC8E0E006F2336 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 237783CF26CC8E0E006F2336 /* ComposableArchitecture */; };
+		233B12D726D33B42007007BD /* SharedModels in Frameworks */ = {isa = PBXBuildFile; productRef = 233B12D626D33B42007007BD /* SharedModels */; };
+		233B12D926D35EEE007007BD /* AuthenticationClient in Frameworks */ = {isa = PBXBuildFile; productRef = 233B12D826D35EEE007007BD /* AuthenticationClient */; };
 		237BA8F326D06E38009C48B6 /* AppFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 237BA8F226D06E38009C48B6 /* AppFeature */; };
-		237BA8F526D07F4F009C48B6 /* AuthenticationClient in Frameworks */ = {isa = PBXBuildFile; productRef = 237BA8F426D07F4F009C48B6 /* AuthenticationClient */; };
-		237BA8F926D08351009C48B6 /* NutritionFactClient in Frameworks */ = {isa = PBXBuildFile; productRef = 237BA8F826D08351009C48B6 /* NutritionFactClient */; };
-		237BA8FB26D083B8009C48B6 /* NutritionFactClient in Frameworks */ = {isa = PBXBuildFile; productRef = 237BA8FA26D083B8009C48B6 /* NutritionFactClient */; };
-		237BA8FD26D083C5009C48B6 /* NutritionFactClient in Frameworks */ = {isa = PBXBuildFile; productRef = 237BA8FC26D083C5009C48B6 /* NutritionFactClient */; };
-		237E2A6726CDD50B00A1A084 /* RewardsPreviewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237E2A6626CDD50B00A1A084 /* RewardsPreviewApp.swift */; };
-		237E2A7326CDD51B00A1A084 /* AccountCore in Frameworks */ = {isa = PBXBuildFile; productRef = 237E2A7226CDD51B00A1A084 /* AccountCore */; };
-		237E2A7726CDD52400A1A084 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 237E2A7626CDD52400A1A084 /* ComposableArchitecture */; };
-		237E2A7B26CDD6B100A1A084 /* AuthenticationClient in Frameworks */ = {isa = PBXBuildFile; productRef = 237E2A7A26CDD6B100A1A084 /* AuthenticationClient */; };
-		238B61FE26CB3E060066EBD5 /* SmoothiesCore in Frameworks */ = {isa = PBXBuildFile; productRef = 238B61FD26CB3E060066EBD5 /* SmoothiesCore */; };
-		238B620826CB7DE90066EBD5 /* RecipeListPreviewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238B620726CB7DE90066EBD5 /* RecipeListPreviewApp.swift */; };
-		23A496B226CA606200C3821B /* SmoothieListPreviewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A496B126CA606200C3821B /* SmoothieListPreviewApp.swift */; };
-		23A496BF26CA60AB00C3821B /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 23A496BE26CA60AB00C3821B /* ComposableArchitecture */; };
-		23A496C126CA60B300C3821B /* SmoothiesSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 23A496C026CA60B300C3821B /* SmoothiesSwiftUI */; };
-		23D0016126CF07D10054BD5D /* StoreKit.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 237E2A8226CE283800A1A084 /* StoreKit.storekit */; };
-		23D0018026CF58C30054BD5D /* StoreKitClient in Frameworks */ = {isa = PBXBuildFile; productRef = 23D0017F26CF58C30054BD5D /* StoreKitClient */; };
-		23D6148A26D0885C007A6672 /* RecipesFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 23D6148926D0885C007A6672 /* RecipesFeature */; };
-		23D6148C26D0886B007A6672 /* RecipesFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 23D6148B26D0886B007A6672 /* RecipesFeature */; };
-		23D6148E26D090D1007A6672 /* MenuFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 23D6148D26D090D1007A6672 /* MenuFeature */; };
-		23D6149026D090D6007A6672 /* FavoritesFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 23D6148F26D090D6007A6672 /* FavoritesFeature */; };
-		23D6149226D09208007A6672 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 23D6149126D09208007A6672 /* ComposableArchitecture */; };
-		23E2178126CB7E200045E90F /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 23E2178026CB7E200045E90F /* ComposableArchitecture */; };
-		23E9011026CF03ED00CC5B71 /* StoreKitPlaygroundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E9010F26CF03ED00CC5B71 /* StoreKitPlaygroundApp.swift */; };
-		23E9011C26CF03FF00CC5B71 /* StoreKitClient in Frameworks */ = {isa = PBXBuildFile; productRef = 23E9011B26CF03FF00CC5B71 /* StoreKitClient */; };
-		23E9011E26CF03FF00CC5B71 /* StoreKitCore in Frameworks */ = {isa = PBXBuildFile; productRef = 23E9011D26CF03FF00CC5B71 /* StoreKitCore */; };
-		23E9012026CF03FF00CC5B71 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 23E9011F26CF03FF00CC5B71 /* ComposableArchitecture */; };
+		23F8789E26D2097800DA57AA /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 23F8789D26D2097800DA57AA /* ComposableArchitecture */; };
+		23F878A026D20D9500DA57AA /* SmoothiesCore in Frameworks */ = {isa = PBXBuildFile; productRef = 23F8789F26D20D9500DA57AA /* SmoothiesCore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,20 +21,8 @@
 		230CDA1D26C74CA2006A0949 /* FrutaTCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrutaTCA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		230CDA2326C74CA2006A0949 /* FrutaTCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrutaTCA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		230CDA3226C74CCA006A0949 /* fruta-tca */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "fruta-tca"; sourceTree = "<group>"; };
-		230CDA3626C74FB2006A0949 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		237783BC26CC8DD1006F2336 /* OrderPreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrderPreview.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		237783BE26CC8DD1006F2336 /* OrderPreviewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPreviewApp.swift; sourceTree = "<group>"; };
-		237E2A6426CDD50B00A1A084 /* RewardsPreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RewardsPreview.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		237E2A6626CDD50B00A1A084 /* RewardsPreviewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsPreviewApp.swift; sourceTree = "<group>"; };
-		237E2A7C26CDDBB000A1A084 /* RewardsPreview.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RewardsPreview.entitlements; sourceTree = "<group>"; };
 		237E2A8126CE0E5200A1A084 /* FrutaTCA (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FrutaTCA (iOS).entitlements"; sourceTree = "<group>"; };
 		237E2A8226CE283800A1A084 /* StoreKit.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKit.storekit; sourceTree = "<group>"; };
-		238B620526CB7DE90066EBD5 /* RecipeListPreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeListPreview.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		238B620726CB7DE90066EBD5 /* RecipeListPreviewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListPreviewApp.swift; sourceTree = "<group>"; };
-		23A496AF26CA606200C3821B /* SmoothieListPreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmoothieListPreview.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		23A496B126CA606200C3821B /* SmoothieListPreviewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmoothieListPreviewApp.swift; sourceTree = "<group>"; };
-		23E9010D26CF03ED00CC5B71 /* StoreKitPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreKitPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		23E9010F26CF03ED00CC5B71 /* StoreKitPlaygroundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitPlaygroundApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,14 +30,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23F878A026D20D9500DA57AA /* SmoothiesCore in Frameworks */,
+				23F8789E26D2097800DA57AA /* ComposableArchitecture in Frameworks */,
 				237BA8F326D06E38009C48B6 /* AppFeature in Frameworks */,
-				23D0018026CF58C30054BD5D /* StoreKitClient in Frameworks */,
-				237BA8F926D08351009C48B6 /* NutritionFactClient in Frameworks */,
-				23D6148E26D090D1007A6672 /* MenuFeature in Frameworks */,
-				237BA8F526D07F4F009C48B6 /* AuthenticationClient in Frameworks */,
-				23D6148A26D0885C007A6672 /* RecipesFeature in Frameworks */,
-				23D6149226D09208007A6672 /* ComposableArchitecture in Frameworks */,
-				23D6149026D090D6007A6672 /* FavoritesFeature in Frameworks */,
+				233B12D726D33B42007007BD /* SharedModels in Frameworks */,
+				233B12D926D35EEE007007BD /* AuthenticationClient in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,57 +42,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		237783B926CC8DD1006F2336 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				237783CC26CC8E03006F2336 /* OrderCore in Frameworks */,
-				237783CE26CC8E08006F2336 /* OrderSwiftUI in Frameworks */,
-				237783D026CC8E0E006F2336 /* ComposableArchitecture in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		237E2A6126CDD50B00A1A084 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				237E2A7326CDD51B00A1A084 /* AccountCore in Frameworks */,
-				237E2A7726CDD52400A1A084 /* ComposableArchitecture in Frameworks */,
-				237E2A7B26CDD6B100A1A084 /* AuthenticationClient in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		238B620226CB7DE90066EBD5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				237BA8FB26D083B8009C48B6 /* NutritionFactClient in Frameworks */,
-				23E2178126CB7E200045E90F /* ComposableArchitecture in Frameworks */,
-				23D6148C26D0886B007A6672 /* RecipesFeature in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		23A496AC26CA606200C3821B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				237BA8FD26D083C5009C48B6 /* NutritionFactClient in Frameworks */,
-				238B61FE26CB3E060066EBD5 /* SmoothiesCore in Frameworks */,
-				23A496C126CA60B300C3821B /* SmoothiesSwiftUI in Frameworks */,
-				23A496BF26CA60AB00C3821B /* ComposableArchitecture in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		23E9010A26CF03ED00CC5B71 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				23E9011E26CF03FF00CC5B71 /* StoreKitCore in Frameworks */,
-				23E9011C26CF03FF00CC5B71 /* StoreKitClient in Frameworks */,
-				23E9012026CF03FF00CC5B71 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,7 +54,6 @@
 				230CDA3226C74CCA006A0949 /* fruta-tca */,
 				230CDA1526C74CA1006A0949 /* Shared */,
 				23A496BD26CA606900C3821B /* Previews */,
-				23E9012126CF040800CC5B71 /* Playgrounds */,
 				230CDA1E26C74CA2006A0949 /* Products */,
 				237E2A8326CE286C00A1A084 /* Config */,
 				230CDA3926C74FE5006A0949 /* Frameworks */,
@@ -159,7 +65,6 @@
 			children = (
 				237E2A8126CE0E5200A1A084 /* FrutaTCA (iOS).entitlements */,
 				230CDA1626C74CA1006A0949 /* FrutaTCAApp.swift */,
-				230CDA3626C74FB2006A0949 /* RootView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -169,11 +74,6 @@
 			children = (
 				230CDA1D26C74CA2006A0949 /* FrutaTCA.app */,
 				230CDA2326C74CA2006A0949 /* FrutaTCA.app */,
-				23A496AF26CA606200C3821B /* SmoothieListPreview.app */,
-				238B620526CB7DE90066EBD5 /* RecipeListPreview.app */,
-				237783BC26CC8DD1006F2336 /* OrderPreview.app */,
-				237E2A6426CDD50B00A1A084 /* RewardsPreview.app */,
-				23E9010D26CF03ED00CC5B71 /* StoreKitPlayground.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -185,23 +85,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		237783BD26CC8DD1006F2336 /* OrderPreview */ = {
-			isa = PBXGroup;
-			children = (
-				237783BE26CC8DD1006F2336 /* OrderPreviewApp.swift */,
-			);
-			path = OrderPreview;
-			sourceTree = "<group>";
-		};
-		237E2A6526CDD50B00A1A084 /* RewardsPreview */ = {
-			isa = PBXGroup;
-			children = (
-				237E2A7C26CDDBB000A1A084 /* RewardsPreview.entitlements */,
-				237E2A6626CDD50B00A1A084 /* RewardsPreviewApp.swift */,
-			);
-			path = RewardsPreview;
-			sourceTree = "<group>";
-		};
 		237E2A8326CE286C00A1A084 /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,47 +93,11 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
-		238B620626CB7DE90066EBD5 /* RecipeListPreview */ = {
-			isa = PBXGroup;
-			children = (
-				238B620726CB7DE90066EBD5 /* RecipeListPreviewApp.swift */,
-			);
-			path = RecipeListPreview;
-			sourceTree = "<group>";
-		};
-		23A496B026CA606200C3821B /* SmoothieListPreview */ = {
-			isa = PBXGroup;
-			children = (
-				23A496B126CA606200C3821B /* SmoothieListPreviewApp.swift */,
-			);
-			path = SmoothieListPreview;
-			sourceTree = "<group>";
-		};
 		23A496BD26CA606900C3821B /* Previews */ = {
 			isa = PBXGroup;
 			children = (
-				237783BD26CC8DD1006F2336 /* OrderPreview */,
-				238B620626CB7DE90066EBD5 /* RecipeListPreview */,
-				237E2A6526CDD50B00A1A084 /* RewardsPreview */,
-				23A496B026CA606200C3821B /* SmoothieListPreview */,
 			);
 			path = Previews;
-			sourceTree = "<group>";
-		};
-		23E9010E26CF03ED00CC5B71 /* StoreKitPlayground */ = {
-			isa = PBXGroup;
-			children = (
-				23E9010F26CF03ED00CC5B71 /* StoreKitPlaygroundApp.swift */,
-			);
-			path = StoreKitPlayground;
-			sourceTree = "<group>";
-		};
-		23E9012126CF040800CC5B71 /* Playgrounds */ = {
-			isa = PBXGroup;
-			children = (
-				23E9010E26CF03ED00CC5B71 /* StoreKitPlayground */,
-			);
-			path = Playgrounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,14 +117,11 @@
 			);
 			name = "FrutaTCA (iOS)";
 			packageProductDependencies = (
-				23D0017F26CF58C30054BD5D /* StoreKitClient */,
 				237BA8F226D06E38009C48B6 /* AppFeature */,
-				237BA8F426D07F4F009C48B6 /* AuthenticationClient */,
-				237BA8F826D08351009C48B6 /* NutritionFactClient */,
-				23D6148926D0885C007A6672 /* RecipesFeature */,
-				23D6148D26D090D1007A6672 /* MenuFeature */,
-				23D6148F26D090D6007A6672 /* FavoritesFeature */,
-				23D6149126D09208007A6672 /* ComposableArchitecture */,
+				23F8789D26D2097800DA57AA /* ComposableArchitecture */,
+				23F8789F26D20D9500DA57AA /* SmoothiesCore */,
+				233B12D626D33B42007007BD /* SharedModels */,
+				233B12D826D35EEE007007BD /* AuthenticationClient */,
 			);
 			productName = "FrutaTCA (iOS)";
 			productReference = 230CDA1D26C74CA2006A0949 /* FrutaTCA.app */;
@@ -300,117 +144,6 @@
 			productReference = 230CDA2326C74CA2006A0949 /* FrutaTCA.app */;
 			productType = "com.apple.product-type.application";
 		};
-		237783BB26CC8DD1006F2336 /* OrderPreview */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 237783C926CC8DD2006F2336 /* Build configuration list for PBXNativeTarget "OrderPreview" */;
-			buildPhases = (
-				237783B826CC8DD1006F2336 /* Sources */,
-				237783B926CC8DD1006F2336 /* Frameworks */,
-				237783BA26CC8DD1006F2336 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = OrderPreview;
-			packageProductDependencies = (
-				237783CB26CC8E03006F2336 /* OrderCore */,
-				237783CD26CC8E08006F2336 /* OrderSwiftUI */,
-				237783CF26CC8E0E006F2336 /* ComposableArchitecture */,
-			);
-			productName = OrderPreview;
-			productReference = 237783BC26CC8DD1006F2336 /* OrderPreview.app */;
-			productType = "com.apple.product-type.application";
-		};
-		237E2A6326CDD50B00A1A084 /* RewardsPreview */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 237E2A7126CDD50E00A1A084 /* Build configuration list for PBXNativeTarget "RewardsPreview" */;
-			buildPhases = (
-				237E2A6026CDD50B00A1A084 /* Sources */,
-				237E2A6126CDD50B00A1A084 /* Frameworks */,
-				237E2A6226CDD50B00A1A084 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = RewardsPreview;
-			packageProductDependencies = (
-				237E2A7226CDD51B00A1A084 /* AccountCore */,
-				237E2A7626CDD52400A1A084 /* ComposableArchitecture */,
-				237E2A7A26CDD6B100A1A084 /* AuthenticationClient */,
-			);
-			productName = RewardsPreview;
-			productReference = 237E2A6426CDD50B00A1A084 /* RewardsPreview.app */;
-			productType = "com.apple.product-type.application";
-		};
-		238B620426CB7DE90066EBD5 /* RecipeListPreview */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 238B621026CB7DEA0066EBD5 /* Build configuration list for PBXNativeTarget "RecipeListPreview" */;
-			buildPhases = (
-				238B620126CB7DE90066EBD5 /* Sources */,
-				238B620226CB7DE90066EBD5 /* Frameworks */,
-				238B620326CB7DE90066EBD5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = RecipeListPreview;
-			packageProductDependencies = (
-				23E2178026CB7E200045E90F /* ComposableArchitecture */,
-				237BA8FA26D083B8009C48B6 /* NutritionFactClient */,
-				23D6148B26D0886B007A6672 /* RecipesFeature */,
-			);
-			productName = RecipeListPreview;
-			productReference = 238B620526CB7DE90066EBD5 /* RecipeListPreview.app */;
-			productType = "com.apple.product-type.application";
-		};
-		23A496AE26CA606200C3821B /* SmoothieListPreview */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 23A496BC26CA606300C3821B /* Build configuration list for PBXNativeTarget "SmoothieListPreview" */;
-			buildPhases = (
-				23A496AB26CA606200C3821B /* Sources */,
-				23A496AC26CA606200C3821B /* Frameworks */,
-				23A496AD26CA606200C3821B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SmoothieListPreview;
-			packageProductDependencies = (
-				23A496BE26CA60AB00C3821B /* ComposableArchitecture */,
-				23A496C026CA60B300C3821B /* SmoothiesSwiftUI */,
-				238B61FD26CB3E060066EBD5 /* SmoothiesCore */,
-				237BA8FC26D083C5009C48B6 /* NutritionFactClient */,
-			);
-			productName = SmoothieListPreview;
-			productReference = 23A496AF26CA606200C3821B /* SmoothieListPreview.app */;
-			productType = "com.apple.product-type.application";
-		};
-		23E9010C26CF03ED00CC5B71 /* StoreKitPlayground */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 23E9011A26CF03EE00CC5B71 /* Build configuration list for PBXNativeTarget "StoreKitPlayground" */;
-			buildPhases = (
-				23E9010926CF03ED00CC5B71 /* Sources */,
-				23E9010A26CF03ED00CC5B71 /* Frameworks */,
-				23E9010B26CF03ED00CC5B71 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = StoreKitPlayground;
-			packageProductDependencies = (
-				23E9011B26CF03FF00CC5B71 /* StoreKitClient */,
-				23E9011D26CF03FF00CC5B71 /* StoreKitCore */,
-				23E9011F26CF03FF00CC5B71 /* ComposableArchitecture */,
-			);
-			productName = StoreKitPlayground;
-			productReference = 23E9010D26CF03ED00CC5B71 /* StoreKitPlayground.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -425,21 +158,6 @@
 						CreatedOnToolsVersion = 13.0;
 					};
 					230CDA2226C74CA2006A0949 = {
-						CreatedOnToolsVersion = 13.0;
-					};
-					237783BB26CC8DD1006F2336 = {
-						CreatedOnToolsVersion = 13.0;
-					};
-					237E2A6326CDD50B00A1A084 = {
-						CreatedOnToolsVersion = 13.0;
-					};
-					238B620426CB7DE90066EBD5 = {
-						CreatedOnToolsVersion = 13.0;
-					};
-					23A496AE26CA606200C3821B = {
-						CreatedOnToolsVersion = 13.0;
-					};
-					23E9010C26CF03ED00CC5B71 = {
 						CreatedOnToolsVersion = 13.0;
 					};
 				};
@@ -462,11 +180,6 @@
 			targets = (
 				230CDA1C26C74CA2006A0949 /* FrutaTCA (iOS) */,
 				230CDA2226C74CA2006A0949 /* FrutaTCA (macOS) */,
-				23A496AE26CA606200C3821B /* SmoothieListPreview */,
-				238B620426CB7DE90066EBD5 /* RecipeListPreview */,
-				237783BB26CC8DD1006F2336 /* OrderPreview */,
-				237E2A6326CDD50B00A1A084 /* RewardsPreview */,
-				23E9010C26CF03ED00CC5B71 /* StoreKitPlayground */,
 			);
 		};
 /* End PBXProject section */
@@ -486,42 +199,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		237783BA26CC8DD1006F2336 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		237E2A6226CDD50B00A1A084 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		238B620326CB7DE90066EBD5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		23A496AD26CA606200C3821B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		23E9010B26CF03ED00CC5B71 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				23D0016126CF07D10054BD5D /* StoreKit.storekit in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -529,7 +206,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				230CDA3726C74FB2006A0949 /* RootView.swift in Sources */,
 				230CDA2426C74CA2006A0949 /* FrutaTCAApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -538,48 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				230CDA3826C74FB2006A0949 /* RootView.swift in Sources */,
 				230CDA2526C74CA2006A0949 /* FrutaTCAApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		237783B826CC8DD1006F2336 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				237783BF26CC8DD1006F2336 /* OrderPreviewApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		237E2A6026CDD50B00A1A084 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				237E2A6726CDD50B00A1A084 /* RewardsPreviewApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		238B620126CB7DE90066EBD5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				238B620826CB7DE90066EBD5 /* RecipeListPreviewApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		23A496AB26CA606200C3821B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				23A496B226CA606200C3821B /* SmoothieListPreviewApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		23E9010926CF03ED00CC5B71 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				23E9011026CF03ED00CC5B71 /* StoreKitPlaygroundApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -701,7 +336,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "FrutaTCA (iOS).entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Shared/FrutaTCA (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G7SC3UG6VB;
@@ -731,7 +366,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "FrutaTCA (iOS).entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Shared/FrutaTCA (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G7SC3UG6VB;
@@ -816,313 +451,6 @@
 			};
 			name = Release;
 		};
-		237783C726CC8DD2006F2336 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = G7SC3UG6VB;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.patbrown.OrderPreview;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		237783C826CC8DD2006F2336 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = G7SC3UG6VB;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.patbrown.OrderPreview;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		237E2A6F26CDD50E00A1A084 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = RewardsPreview.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = G7SC3UG6VB;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.patbrown.RewardsPreview;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		237E2A7026CDD50E00A1A084 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = RewardsPreview.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = G7SC3UG6VB;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.patbrown.RewardsPreview;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		238B621126CB7DEA0066EBD5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = G7SC3UG6VB;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.patbrown.RecipeListPreview;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		238B621226CB7DEA0066EBD5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = G7SC3UG6VB;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.patbrown.RecipeListPreview;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		23A496BA26CA606300C3821B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = G7SC3UG6VB;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.patbrown.SmoothieListPreview;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		23A496BB26CA606300C3821B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = G7SC3UG6VB;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.patbrown.SmoothieListPreview;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		23E9011826CF03EE00CC5B71 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = G7SC3UG6VB;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.patbrown.StoreKitPlayground;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		23E9011926CF03EE00CC5B71 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = G7SC3UG6VB;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.patbrown.StoreKitPlayground;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1153,51 +481,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		237783C926CC8DD2006F2336 /* Build configuration list for PBXNativeTarget "OrderPreview" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				237783C726CC8DD2006F2336 /* Debug */,
-				237783C826CC8DD2006F2336 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		237E2A7126CDD50E00A1A084 /* Build configuration list for PBXNativeTarget "RewardsPreview" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				237E2A6F26CDD50E00A1A084 /* Debug */,
-				237E2A7026CDD50E00A1A084 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		238B621026CB7DEA0066EBD5 /* Build configuration list for PBXNativeTarget "RecipeListPreview" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				238B621126CB7DEA0066EBD5 /* Debug */,
-				238B621226CB7DEA0066EBD5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		23A496BC26CA606300C3821B /* Build configuration list for PBXNativeTarget "SmoothieListPreview" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				23A496BA26CA606300C3821B /* Debug */,
-				23A496BB26CA606300C3821B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		23E9011A26CF03EE00CC5B71 /* Build configuration list for PBXNativeTarget "StoreKitPlayground" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				23E9011826CF03EE00CC5B71 /* Debug */,
-				23E9011926CF03EE00CC5B71 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -1212,107 +495,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		237783CB26CC8E03006F2336 /* OrderCore */ = {
+		233B12D626D33B42007007BD /* SharedModels */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = OrderCore;
+			productName = SharedModels;
 		};
-		237783CD26CC8E08006F2336 /* OrderSwiftUI */ = {
+		233B12D826D35EEE007007BD /* AuthenticationClient */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = OrderSwiftUI;
-		};
-		237783CF26CC8E0E006F2336 /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 230CDA3326C74DB6006A0949 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
+			productName = AuthenticationClient;
 		};
 		237BA8F226D06E38009C48B6 /* AppFeature */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppFeature;
 		};
-		237BA8F426D07F4F009C48B6 /* AuthenticationClient */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = AuthenticationClient;
-		};
-		237BA8F826D08351009C48B6 /* NutritionFactClient */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = NutritionFactClient;
-		};
-		237BA8FA26D083B8009C48B6 /* NutritionFactClient */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = NutritionFactClient;
-		};
-		237BA8FC26D083C5009C48B6 /* NutritionFactClient */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = NutritionFactClient;
-		};
-		237E2A7226CDD51B00A1A084 /* AccountCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = AccountCore;
-		};
-		237E2A7626CDD52400A1A084 /* ComposableArchitecture */ = {
+		23F8789D26D2097800DA57AA /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 230CDA3326C74DB6006A0949 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
 		};
-		237E2A7A26CDD6B100A1A084 /* AuthenticationClient */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = AuthenticationClient;
-		};
-		238B61FD26CB3E060066EBD5 /* SmoothiesCore */ = {
+		23F8789F26D20D9500DA57AA /* SmoothiesCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SmoothiesCore;
-		};
-		23A496BE26CA60AB00C3821B /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 230CDA3326C74DB6006A0949 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
-		};
-		23A496C026CA60B300C3821B /* SmoothiesSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SmoothiesSwiftUI;
-		};
-		23D0017F26CF58C30054BD5D /* StoreKitClient */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = StoreKitClient;
-		};
-		23D6148926D0885C007A6672 /* RecipesFeature */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RecipesFeature;
-		};
-		23D6148B26D0886B007A6672 /* RecipesFeature */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RecipesFeature;
-		};
-		23D6148D26D090D1007A6672 /* MenuFeature */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MenuFeature;
-		};
-		23D6148F26D090D6007A6672 /* FavoritesFeature */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = FavoritesFeature;
-		};
-		23D6149126D09208007A6672 /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 230CDA3326C74DB6006A0949 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
-		};
-		23E2178026CB7E200045E90F /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 230CDA3326C74DB6006A0949 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
-		};
-		23E9011B26CF03FF00CC5B71 /* StoreKitClient */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = StoreKitClient;
-		};
-		23E9011D26CF03FF00CC5B71 /* StoreKitCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = StoreKitCore;
-		};
-		23E9011F26CF03FF00CC5B71 /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 230CDA3326C74DB6006A0949 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,11 +1,12 @@
+import SharedModels
 import SwiftUI
 
-struct MeasurementView<Unit: Foundation.Unit>: View {
-  var measurement: Measurement<Unit>
+struct MeasurementView: View {
+  var measurement: DisplayableMeasurement
 
   var body: some View {
     HStack {
-      Image(measurement.unit)
+      measurement.unitImage
         .foregroundStyle(.secondary)
 
       Text(measurement.localizedSummary())

@@ -1,3 +1,4 @@
+import ComposableArchitecture
 import Foundation
 
 extension AuthenticationClient {
@@ -5,15 +6,11 @@ extension AuthenticationClient {
 
   public static let mock = Self(
     authenticate: { _ in
-      .future { callback in
-        currentUser = "mock"
-        callback(.success(true))
-      }
-    }, currentUser: { currentUser },
-    refreshAuthentication: {
-      .future { callback in
-        callback(.success(currentUser != nil))
-      }
-    }
+      print("jererer")
+      currentUser = "mock"
+      return Effect(value: true)
+    },
+    currentUser: { currentUser },
+    refreshAuthentication: { Effect(value: currentUser != nil) }
   )
 }

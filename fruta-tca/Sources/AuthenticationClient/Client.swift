@@ -5,16 +5,7 @@ public enum AuthenticationRequest: Equatable {
   case appleId(String?)
 }
 
-public enum AuthenticationError: Equatable, LocalizedError {
-  case error(String)
-
-  public var errorDescription: String? {
-    switch self {
-    case let .error(description):
-      return description
-    }
-  }
-}
+public struct AuthenticationError: Equatable, Error {}
 
 public struct AuthenticationClient {
   public var authenticate: (AuthenticationRequest) -> Effect<Bool, AuthenticationError>

@@ -1,15 +1,13 @@
-import ComposableArchitecture
-import SmoothieCore
+import SharedModels
+import SharedUI
+import SmoothiesCore
 import SwiftUI
 
-public struct RecipeView: View {
-  let store: Store<RecipeState, RecipeAction>
-  @ObservedObject var viewStore: ViewStore<RecipeState, RecipeAction>
+struct RecipeView: View {
+  var smoothie: Smoothie
+  @Binding var isFavorite: Bool
 
-  public init(store: Store<RecipeState, RecipeAction>) {
-    self.store = store
-    self.viewStore = ViewStore(store)
-  }
+  @State private var smoothieCount = 1
 
   var backgroundColor: Color {
     #if os(iOS)
@@ -23,18 +21,18 @@ public struct RecipeView: View {
 
   var recipeToolbar: some View {
     StepperView(
-      value: viewStore.binding(get: \.smoothieCount, send: RecipeAction.smoothieCountChanged),
-      label: "\(viewStore.smoothieCount) Smoothies",
+      value: $smoothieCount,
+      label: "\(smoothieCount) Smoothies",
       configuration: StepperView.Configuration(increment: 1, minValue: 1, maxValue: 9)
     )
     .frame(maxWidth: .infinity)
     .padding(20)
   }
 
-  public var body: some View {
+  var body: some View {
     ScrollView {
       VStack(alignment: .leading) {
-        Image(viewStore.smoothie)
+        smoothie.image
           .resizable()
           .aspectRatio(contentMode: .fill)
           .frame(maxHeight: 300)
@@ -46,18 +44,22 @@ public struct RecipeView: View {
           .overlay(alignment: .bottom) { recipeToolbar }
 
         VStack(alignment: .leading) {
-          Text("Ingredients")
-            .font(Font.title).bold()
-            .foregroundStyle(.secondary)
+          Text(
+            "Ingredients.recipe",
+            tableName: "Ingredients",
+            comment: "Ingredients in a recipe. For languages that have different words for \"Ingredient\" based on semantic context."
+          )
+          .font(Font.title).bold()
+          .foregroundStyle(.secondary)
 
           VStack {
-            ForEach(0 ..< viewStore.smoothie.measuredIngredients.count) { index in
+            ForEach(0 ..< smoothie.measuredIngredients.count) { index in
               RecipeIngredientRow(
-                measuredIngredient: viewStore.smoothie.measuredIngredients[index]
-                  .scaled(by: Double(viewStore.smoothieCount))
+                measuredIngredient: smoothie.measuredIngredients[index]
+                  .scaled(by: Double(smoothieCount))
               )
               .padding(.horizontal)
-              if index < viewStore.smoothie.measuredIngredients.count - 1 {
+              if index < smoothie.measuredIngredients.count - 1 {
                 Divider()
               }
             }
@@ -75,7 +77,51 @@ public struct RecipeView: View {
       .frame(maxWidth: .infinity)
     }
     .background { backgroundColor.ignoresSafeArea() }
-    .navigationTitle(viewStore.smoothie.title)
-    //  .toolbar { SmoothieFavoriteButton(smoothie: smoothie) }
+    .navigationTitle(smoothie.title)
+    .toolbar {
+      SmoothieFavoriteButton(isFavorite: $isFavorite)
+    }
+  }
+}
+
+struct RecipeIngredientRow: View {
+  var measuredIngredient: MeasuredIngredient
+
+  @State private var checked = false
+
+  var body: some View {
+    Button(action: { checked.toggle() }) {
+      HStack {
+        measuredIngredient.ingredient.image
+          .resizable()
+          .aspectRatio(contentMode: .fill)
+          .scaleEffect(measuredIngredient.ingredient.thumbnailCrop.scale * 1.25)
+          .frame(width: 60, height: 60)
+          .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+
+        VStack(alignment: .leading, spacing: 4) {
+          Text(measuredIngredient.ingredient.name).font(.headline)
+          MeasurementView(measurement: measuredIngredient.measurement)
+        }
+
+        Spacer()
+
+        Toggle(isOn: $checked) {
+          Text(
+            "Complete",
+            comment: "Label for toggle showing whether you have completed adding an ingredient that's part of a smoothie recipe"
+          )
+        }
+      }
+      .contentShape(Rectangle())
+    }
+    .buttonStyle(.plain)
+    .toggleStyle(.circle)
+  }
+}
+
+struct RecipeView_Previews: PreviewProvider {
+  static var previews: some View {
+    RecipeView(smoothie: .thatsBerryBananas, isFavorite: .constant(false))
   }
 }

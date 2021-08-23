@@ -5,48 +5,30 @@ import PackageDescription
 
 let package = Package(
   name: "fruta-tca",
+  defaultLocalization: "en",
   platforms: [.macOS(.v12), .iOS(.v15)],
   products: [
-    .library(name: "AccountCore", targets: ["AccountCore"]),
     .library(name: "AppFeature", targets: ["AppFeature"]),
     .library(name: "AuthenticationClient", targets: ["AuthenticationClient"]),
-    .library(name: "FavoriteCore", targets: ["FavoriteCore"]),
-    .library(name: "FavoritesFeature", targets: ["FavoritesFeature"]),
-    .library(name: "IngredientCore", targets: ["IngredientCore"]),
-    .library(name: "MenuFeature", targets: ["MenuFeature"]),
-    .library(name: "NutritionFactClient", targets: ["NutritionFactClient"]),
-    .library(name: "NutritionFactCore", targets: ["NutritionFactCore"]),
-    .library(name: "OrderCore", targets: ["OrderCore"]),
+    .library(name: "OrdersFeature", targets: ["OrdersFeature"]),
     .library(name: "RecipesFeature", targets: ["RecipesFeature"]),
-    .library(name: "SharedSwiftUI", targets: ["SharedSwiftUI"]),
-    .library(name: "SmoothieCore", targets: ["SmoothieCore"]),
+    .library(name: "SmoothiesCore", targets: ["SmoothiesCore"]),
+    .library(name: "SharedModels", targets: ["SharedModels"]),
+    .library(name: "SharedUI", targets: ["SharedUI"]),
     .library(name: "StoreKitClient", targets: ["StoreKitClient"]),
-    .library(name: "StoreKitCore", targets: ["StoreKitCore"]),
   ],
   dependencies: [
     .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", .branch("main")),
   ],
   targets: [
     .target(
-      name: "AccountCore",
-      dependencies: [
-        "AuthenticationClient",
-        "OrderCore",
-        "SharedSwiftUI",
-        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-      ]
-    ),
-    .target(
       name: "AppFeature",
       dependencies: [
-        "AccountCore",
-        "AuthenticationClient",
-        "FavoritesFeature",
-        "NutritionFactClient",
+        "OrdersFeature",
         "RecipesFeature",
-        "MenuFeature",
+        "SharedModels",
+        "SmoothiesCore",
         "StoreKitClient",
-        "StoreKitCore",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),
@@ -57,91 +39,48 @@ let package = Package(
       ]
     ),
     .target(
-      name: "FavoriteCore",
+      name: "OrdersFeature",
       dependencies: [
-        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-      ]
-    ),
-    .target(
-      name: "FavoritesFeature",
-      dependencies: [
-        "SmoothieCore",
-        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-      ]
-    ),
-    .target(
-      name: "IngredientCore",
-      dependencies: [
-        "NutritionFactCore",
-        "SharedSwiftUI",
-        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-      ],
-      resources: [.copy("Assets.xcassets")]
-    ),
-    .target(
-      name: "MenuFeature",
-      dependencies: [
-        "SmoothieCore",
-        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-      ]
-    ),
-    .target(
-      name: "NutritionFactClient",
-      dependencies: [
-        "NutritionFactCore",
-      ],
-      resources: [.copy("NutritionFacts")]
-    ),
-    .target(
-      name: "NutritionFactCore",
-      dependencies: [      ]
-    ),
-    .target(
-      name: "OrderCore",
-      dependencies: [
-        "SmoothieCore",
-        "SharedSwiftUI",
+        "AuthenticationClient",
+        "SharedModels",
+        "SharedUI",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),
     .target(
       name: "RecipesFeature",
       dependencies: [
-        "IngredientCore",
-        "NutritionFactClient",
-        "SmoothieCore",
+        "SharedModels",
+        "SharedUI",
+        "SmoothiesCore",
         "StoreKitClient",
-        "StoreKitCore",
-        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-      ],
-      resources: [.copy("Assets.xcassets")]
-    ),
-    .target(
-      name: "SharedSwiftUI",
-      dependencies: [],
-      resources: [.copy("Assets.xcassets")]
-    ),
-    .target(
-      name: "SmoothieCore",
-      dependencies: [
-        "FavoriteCore",
-        "IngredientCore",
-        "NutritionFactClient",
-        "NutritionFactCore",
-        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-      ],
-      resources: [.process("Assets.xcassets")]
-    ),
-    .target(
-      name: "StoreKitClient",
-      dependencies: [
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),
     .target(
-      name: "StoreKitCore",
+      name: "SharedModels",
+      dependencies: [],
+      resources: [.process("Resources/")]
+    ),
+    .target(
+      name: "SharedUI",
       dependencies: [
-        "StoreKitClient",
+        "SharedModels",
+      ]
+    ),
+    .target(
+      name: "SmoothiesCore",
+      dependencies: [
+        "AuthenticationClient",
+        "SharedModels",
+        "SharedUI",
+        "OrdersFeature",
+        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+      ]
+    ),
+    .target(
+      name: "StoreKitClient",
+      dependencies: [
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),

@@ -1,3 +1,4 @@
+import SharedModels
 import StoreKit
 import SwiftUI
 
@@ -9,7 +10,7 @@ struct RecipeUnlockButton: View {
 
   var body: some View {
     ZStack(alignment: .bottom) {
-      Image("recipes-background", bundle: .module).resizable()
+      Image("smoothie/recipes-background", bundle: sharedBundle).resizable()
         .aspectRatio(contentMode: .fill)
       #if os(iOS)
         .frame(height: 225)
