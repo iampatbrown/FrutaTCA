@@ -8,6 +8,12 @@ extension StoreKitClient {
     fetchProducts: { identifiers in
       .task { @MainActor in try await Product.products(for: identifiers) }
     },
+    isVerified: { product in
+      .task {
+        guard case .verified = await product.currentEntitlement else { return false }
+        return true
+      }
+    },
     listenForUpdates: {
       .run { subscriber in
         let listener = Task { @MainActor in
@@ -21,7 +27,7 @@ extension StoreKitClient {
       }
     },
     purchase: { product in
-      Effect.task { try await product.purchase() }
+      .task { @MainActor in try await product.purchase() }
     }
   )
 }
