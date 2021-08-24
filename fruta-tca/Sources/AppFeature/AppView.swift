@@ -13,7 +13,7 @@ public struct AppState: Equatable {
   public var allRecipesUnlocked: Bool
   public var favoriteSmoothieIDs: Set<Smoothie.ID>
   public var order: Order?
-  public var route: Tab
+  public var route: Route
   public var searchString: String
   public var unlockAllRecipesProduct: Product?
 
@@ -22,7 +22,7 @@ public struct AppState: Equatable {
     allRecipesUnlocked: Bool = false,
     favoriteSmoothieIDs: Set<Smoothie.ID> = [],
     order: Order? = nil,
-    route: Tab = .menu,
+    route: Route = .tab(.menu),
     searchString: String = "",
     store: StoreKitState = .init(),
     unlockAllRecipesProduct: Product? = nil
@@ -104,16 +104,27 @@ public struct AppState: Equatable {
     }
   }
 
-  public enum Tab: Equatable {
-    case menu
-    case favorites
-    case rewards
-    case recipes
+  public enum Route: Equatable {
+    case tab(Tab)
+    case sidebar(SidebarItem?)
+
+    public enum Tab: Equatable {
+      case menu
+      case favorites
+      case rewards
+      case recipes
+    }
+
+    public enum SidebarItem: Equatable {
+      case menu
+      case favorites
+      case recipes
+    }
   }
 }
 
 public enum AppAction: Equatable {
-  case setNavigation(AppState.Tab)
+  case setNavigation(AppState.Route)
   case menu(SmoothieListAction)
   case favorites(SmoothieListAction)
   case rewards(RewardsAction)
@@ -182,87 +193,31 @@ public let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
 public struct AppView: View {
   let store: Store<AppState, AppAction>
 
-  struct ViewState: Equatable {
-    var route: AppState.Tab
-
-    init(state: AppState) {
-      self.route = state.route
-    }
-  }
-
   public init(store: Store<AppState, AppAction>) {
     self.store = store
   }
 
+  #if os(iOS)
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+  #endif
+
   public var body: some View {
-    WithViewStore(self.store.scope(state: ViewState.init)) { viewStore in
-      TabView(
-        selection: viewStore.binding(
-          get: \.route,
-          send: AppAction.setNavigation
-        )
-      ) {
-        NavigationView {
-          SmoothieMenu(store: self.store.scope(state: \.menu, action: AppAction.menu))
+    Group {
+      #if os(iOS)
+        if horizontalSizeClass == .compact {
+          AppTabNavigation(store: store)
+        } else {
+          AppSidebarNavigation(store: store)
         }
-        .tabItem {
-          let menuText = Text("Menu", comment: "Smoothie menu tab title")
-          Label {
-            menuText
-          } icon: {
-            Image(systemName: "list.bullet")
-          }.accessibility(label: menuText)
-        }
-        .tag(AppState.Tab.menu)
-
-        NavigationView {
-          FavoriteSmoothies(store: self.store.scope(state: \.favorites, action: AppAction.favorites))
-        }
-        .tabItem {
-          Label {
-            Text(
-              "Favorites",
-              comment: "Favorite smoothies tab title"
-            )
-          } icon: {
-            Image(systemName: "heart.fill")
-          }
-        }
-        .tag(AppState.Tab.favorites)
-
-        NavigationView {
-          RewardsView(store: self.store.scope(state: \.rewards, action: AppAction.rewards))
-        }
-        .tabItem {
-          Label {
-            Text(
-              "Rewards",
-              comment: "Smoothie rewards tab title"
-            )
-          } icon: {
-            Image(systemName: "seal.fill")
-          }
-        }
-        .tag(AppState.Tab.rewards)
-
-        NavigationView {
-          RecipeList(store: self.store.scope(state: \.recipes, action: AppAction.recipes))
-        }
-        .tabItem {
-          Label {
-            Text(
-              "Recipes",
-              comment: "Smoothie recipes tab title"
-            )
-          } icon: {
-            Image(systemName: "book.closed.fill")
-          }
-        }
-        .tag(AppState.Tab.recipes)
-      }
-      //      .navigationViewStyle(.stack)
-      .onAppear { viewStore.send(.recipes(.store(.onLaunch))) }
+      #else
+        AppSidebarNavigation(store: store)
+      #endif
     }
+    .onAppear {
+      ViewStore(store.stateless).send(.recipes(.store(.onLaunch)))
+      // TODO: confirm this can't get called multiple times otherwise use appDelegate
+    }
+
   }
 }
 
