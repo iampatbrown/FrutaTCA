@@ -12,12 +12,12 @@ let package = Package(
       targets: ["AppFeature"]
     ),
     .library(
-      name: "EnvironmentPullback",
-      targets: ["EnvironmentPullback"]
-    ),
-    .library(
       name: "SmoothieCore",
       targets: ["SmoothieCore"]
+    ),
+    .library(
+      name: "SwiftUIHelpers",
+      targets: ["SwiftUIHelpers"]
     ),
   ],
   dependencies: [
@@ -27,20 +27,20 @@ let package = Package(
     .target(
       name: "AppFeature",
       dependencies: [
-        "EnvironmentPullback",
         "SmoothieCore",
+        "SwiftUIHelpers",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
-    ),
-    .target(
-      name: "EnvironmentPullback",
-      dependencies: []
     ),
     .target(
       name: "SmoothieCore",
       dependencies: [
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
+    ),
+    .target(
+      name: "SwiftUIHelpers",
+      dependencies: []
     ),
   ]
 )

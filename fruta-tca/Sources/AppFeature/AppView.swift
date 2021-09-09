@@ -1,8 +1,8 @@
 import ComposableArchitecture
-import EnvironmentPullback
 import IdentifiedCollections
 import SmoothieCore
 import SwiftUI
+import SwiftUIHelpers
 
 public struct AppState: Equatable {
   var navigation: AppNavigation
@@ -55,16 +55,9 @@ public struct AppView: View {
   }
 
   public var body: some View {
-    WithViewStore(self.store.scope(state: ViewState.init, action: AppAction.init)) { viewStore in
-      Group {
-        if viewStore.navigationStyle == .tab {
-          AppTabNavigationView(store: self.store)
-        } else {
-          AppSidebarNavigationView(store: self.store)
-        }
-      }
-      // TODO: ask @pointfreeco if this makes sense...
-      .environmentPullback(to: viewStore.$navigationStyle, values: \.toAppNavigationStyle)
+    WithViewStore(self.store.scope(state: ViewState.init, action: ViewAction.to(appAction:))) { viewStore in
+      AppNavigationView(store: self.store, style: viewStore.navigationStyle)
+        .syncronize(viewStore.$navigationStyle, \.navigationStyle)
     }
   }
 }
@@ -79,17 +72,17 @@ extension AppState {
   }
 }
 
-extension AppAction {
-  init(action: AppView.ViewAction) {
+extension AppView.ViewAction {
+  static func to(appAction action: Self) -> AppAction {
     switch action {
     case let .binding(bindingAction):
-      self = .binding(bindingAction.pullback(\AppState.view))
+      return .binding(bindingAction.pullback(\AppState.view))
     }
   }
 }
 
 extension EnvironmentValues {
-  var toAppNavigationStyle: AppNavigation.Style {
+  var navigationStyle: AppNavigation.Style {
     #if os(iOS)
     if horizontalSizeClass == .compact { return .tab }
     #endif

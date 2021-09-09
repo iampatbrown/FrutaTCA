@@ -1,3 +1,4 @@
+import ComposableArchitecture
 import SwiftUI
 
 public enum AppNavigation: Equatable {
@@ -89,6 +90,20 @@ extension AppTab {
     case .favorites: return .favorites
     case .recipes: return .recipes
     case .rewards: return nil
+    }
+  }
+}
+
+struct AppNavigationView: View {
+  let store: Store<AppState, AppAction>
+  let style: AppNavigation.Style
+
+  var body: some View {
+    switch style {
+    case .sidebar:
+      AppSidebarNavigationView(store: self.store)
+    case .tab:
+      AppTabNavigationView(store: self.store)
     }
   }
 }

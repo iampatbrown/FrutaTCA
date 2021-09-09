@@ -24,10 +24,6 @@ struct AppSidebarNavigationView: View {
     case binding(BindingAction<ViewState>)
   }
 
-  public init(store: Store<AppState, AppAction>) {
-    self.store = store
-  }
-
   var body: some View {
     WithViewStore(self.store.scope(state: ViewState.init, action: ViewAction.to(appAction:))) { viewStore in
       NavigationView {
@@ -135,9 +131,3 @@ extension AppSidebarNavigationView.ViewAction {
     }
   }
 }
-
-// struct AppSidebarNavigationView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    AppSidebarNavigationView()
-//  }
-// }

@@ -1,7 +1,7 @@
 import Combine
 import SwiftUI
 
-private struct EnvironmentPullback<Value>: ViewModifier {
+private struct SynchronizeEnvironment<Value>: ViewModifier {
   @Environment(\.self) var environment
   @Binding var value: Value
   let isDuplicate: (Value, Value) -> Bool
@@ -10,13 +10,13 @@ private struct EnvironmentPullback<Value>: ViewModifier {
   var current: Value { toValue(environment) }
 
   func body(content: Content) -> some View {
-    let current = CurrentValue(value: toValue(environment), isDuplicate: isDuplicate)
+    let current = EquatableBox(value: toValue(environment), isDuplicate: isDuplicate)
     return content.onAppear {
       if !current.valueIsEqual(to: value) { value = current.value }
     }.onChange(of: current) { value = $0.value }
   }
 
-  private struct CurrentValue<Value>: Equatable {
+  private struct EquatableBox<Value>: Equatable {
     let value: Value
     let isDuplicate: (Value, Value) -> Bool
 
@@ -31,18 +31,18 @@ private struct EnvironmentPullback<Value>: ViewModifier {
 }
 
 extension View {
-  public func environmentPullback<Value>(
-    to value: Binding<Value>,
+  public func syncronize<Value>(
+    _ value: Binding<Value>,
     removeDuplicates isDuplicate: @escaping (Value, Value) -> Bool,
-    values toValue: @escaping (EnvironmentValues) -> Value
+    _ toValue: @escaping (EnvironmentValues) -> Value
   ) -> some View {
-    self.modifier(EnvironmentPullback(value: value, isDuplicate: isDuplicate, toValue: toValue))
+    self.modifier(SynchronizeEnvironment(value: value, isDuplicate: isDuplicate, toValue: toValue))
   }
 
-  public func environmentPullback<Value>(
-    to value: Binding<Value>,
-    values toValue: @escaping (EnvironmentValues) -> Value
+  public func syncronize<Value>(
+    _ value: Binding<Value>,
+    _ toValue: @escaping (EnvironmentValues) -> Value
   ) -> some View where Value: Equatable {
-    self.environmentPullback(to: value, removeDuplicates: ==, values: toValue)
+    self.syncronize(value, removeDuplicates: ==, toValue)
   }
 }
