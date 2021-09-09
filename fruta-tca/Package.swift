@@ -15,6 +15,10 @@ let package = Package(
       name: "EnvironmentPullback",
       targets: ["EnvironmentPullback"]
     ),
+    .library(
+      name: "SmoothieCore",
+      targets: ["SmoothieCore"]
+    ),
   ],
   dependencies: [
     .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", from: "0.27.0"),
@@ -24,12 +28,19 @@ let package = Package(
       name: "AppFeature",
       dependencies: [
         "EnvironmentPullback",
+        "SmoothieCore",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),
     .target(
       name: "EnvironmentPullback",
       dependencies: []
+    ),
+    .target(
+      name: "SmoothieCore",
+      dependencies: [
+        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+      ]
     ),
   ]
 )

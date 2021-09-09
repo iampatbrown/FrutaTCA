@@ -1,14 +1,22 @@
 import ComposableArchitecture
 import EnvironmentPullback
 import SwiftUI
+import IdentifiedCollections
+import SmoothieCore
 
 public struct AppState: Equatable {
   var navigation: AppNavigation
+  var smoothies: IdentifiedArrayOf<SmoothieState>
+  @BindableState var searchString: String
 
   public init(
-    navigation: AppNavigation = .sidebar(selection: .menu, isPresentingRewards: false)
+    navigation: AppNavigation = .sidebar(selection: .menu, isPresentingRewards: false),
+    searchString: String = "",
+    smoothies: IdentifiedArrayOf<SmoothieState> = []
   ) {
     self.navigation = navigation
+    self.searchString = searchString
+    self.smoothies = smoothies
   }
 }
 
