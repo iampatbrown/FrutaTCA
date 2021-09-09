@@ -1,6 +1,4 @@
 import AppFeature
-import AuthenticationClient
-import ComposableArchitecture
 import SwiftUI
 
 @main
@@ -8,10 +6,10 @@ struct FrutaTCAApp: App {
   var body: some Scene {
     WindowGroup {
       AppView(
-        store: Store(
+        store: .init(
           initialState: .init(),
-          reducer: appReducer,
-          environment: .init(authentication: .mock, mainQueue: .main, storeKit: .live)
+          reducer: appReducer.debug(),
+          environment: .init()
         )
       )
     }
