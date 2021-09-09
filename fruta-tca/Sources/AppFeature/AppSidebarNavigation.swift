@@ -74,12 +74,10 @@ struct AppSidebarNavigationView: View {
     }
   }
 
-
   // TODO: Ask @pointfreeco about this view... What is a Pocket? Passing it the binding seems okay for now...
   struct Pocket: View {
     let store: Store<AppState, AppAction>
     @Binding var isPresentingRewards: Bool
-
 
     var body: some View {
       Button(action: { isPresentingRewards = true }) { // viewStore.send(.setSheet(isPresenting:)) ???
@@ -91,7 +89,7 @@ struct AppSidebarNavigationView: View {
       .padding(.horizontal, 16)
       .sheet(isPresented: $isPresentingRewards) {
         Text("Rewards")
-        #if os(iOS)  // Not sure how I approach this....
+        #if os(iOS) // Not sure how I approach this....
           .overlay(alignment: .topTrailing) {
             Button(action: { isPresentingRewards = false }) {
               Text("Done", comment: "Button title to dismiss rewards sheet")

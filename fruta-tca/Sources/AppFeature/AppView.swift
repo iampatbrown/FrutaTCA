@@ -1,8 +1,8 @@
 import ComposableArchitecture
 import EnvironmentPullback
-import SwiftUI
 import IdentifiedCollections
 import SmoothieCore
+import SwiftUI
 
 public struct AppState: Equatable {
   var navigation: AppNavigation
@@ -63,6 +63,7 @@ public struct AppView: View {
           AppSidebarNavigationView(store: self.store)
         }
       }
+      // TODO: ask @pointfreeco if this makes sense...
       .environmentPullback(to: viewStore.$navigationStyle, values: \.toAppNavigationStyle)
     }
   }
