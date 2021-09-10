@@ -10,7 +10,7 @@ public struct AppState: Equatable {
   @BindableState var searchString: String
 
   public init(
-    navigation: AppNavigation = .sidebar(selection: .menu, isPresentingRewards: false),
+    navigation: AppNavigation = .sidebar(selection: nil, isPresentingRewards: false),
     searchString: String = "",
     smoothies: IdentifiedArrayOf<SmoothieState> = []
   ) {
@@ -18,6 +18,28 @@ public struct AppState: Equatable {
     self.searchString = searchString
     self.smoothies = smoothies
   }
+
+  var menu: String = ""
+  // Account
+  // Search
+  // SmoothieState
+  // Unique Selection.ID
+
+  var favorites: String = ""
+  // Account
+  // Search
+  // SmoothieState ---> Filtered.isFavorites
+  // Unique Selection.ID
+
+  var rewards: String = ""
+  // Account
+
+  var recipes: String = ""
+  // Search
+  // SmoothieState ---> RecipeState
+  // Toggle Favorite
+  // Unique Selection.ID
+  // StoreIntegration
 }
 
 public enum AppAction: Equatable, BindableAction {
@@ -83,9 +105,9 @@ extension AppView.ViewAction {
 
 extension EnvironmentValues {
   var navigationStyle: AppNavigation.Style {
-    #if os(iOS)
-    if horizontalSizeClass == .compact { return .tab }
-    #endif
+//    #if os(iOS)
+//    if horizontalSizeClass == .compact { return .tab }
+//    #endif
     return .sidebar
   }
 }

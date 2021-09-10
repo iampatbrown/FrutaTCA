@@ -12,6 +12,8 @@ struct FrutaTCAApp: App {
           environment: .init()
         )
       )
+    }.commands {
+      SidebarCommands()
     }
   }
 }

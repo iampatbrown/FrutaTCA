@@ -12,6 +12,10 @@ let package = Package(
       targets: ["AppFeature"]
     ),
     .library(
+      name: "OrderCore",
+      targets: ["OrderCore"]
+    ),
+    .library(
       name: "SmoothieCore",
       targets: ["SmoothieCore"]
     ),
@@ -33,8 +37,20 @@ let package = Package(
       ]
     ),
     .target(
+      name: "OrderCore",
+      dependencies: [
+        "SharedModels",
+        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+      ]
+    ),
+    .target(
+      name: "SharedModels",
+      dependencies: []
+    ),
+    .target(
       name: "SmoothieCore",
       dependencies: [
+        "SharedModels",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),
