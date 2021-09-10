@@ -79,7 +79,7 @@ public struct AppView: View {
   public var body: some View {
     WithViewStore(self.store.scope(state: ViewState.init, action: ViewAction.to(appAction:))) { viewStore in
       AppNavigationView(store: self.store, style: viewStore.navigationStyle)
-        .assign(environment: \.toNavigationStyle, to: viewStore.$navigationStyle)
+        .assign(environment: \.navigationStyle, to: viewStore.$navigationStyle)
     }
   }
 }
@@ -104,7 +104,7 @@ extension AppView.ViewAction {
 }
 
 extension EnvironmentValues {
-  var toNavigationStyle: AppNavigation.Style {
+  var navigationStyle: AppNavigation.Style {
     #if os(iOS)
     if horizontalSizeClass == .compact { return .tab }
     #endif
