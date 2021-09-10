@@ -79,7 +79,7 @@ public struct AppView: View {
   public var body: some View {
     WithViewStore(self.store.scope(state: ViewState.init, action: ViewAction.to(appAction:))) { viewStore in
       AppNavigationView(store: self.store, style: viewStore.navigationStyle)
-        .assignEnvironment(\.toNavigationStyle, to: viewStore.$navigationStyle)
+        .assign(environment: \.toNavigationStyle, to: viewStore.$navigationStyle)
     }
   }
 }

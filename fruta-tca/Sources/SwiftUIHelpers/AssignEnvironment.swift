@@ -15,8 +15,8 @@ private struct AssignEnvironment<Value>: ViewModifier where Value: Equatable {
 }
 
 extension View {
-  public func assignEnvironment<Value>(
-    _ transform: @escaping (EnvironmentValues) -> Value,
+  public func assign<Value>(
+    environment transform: @escaping (EnvironmentValues) -> Value,
     to value: Binding<Value>
   ) -> some View where Value: Equatable {
     self.modifier(AssignEnvironment(transform: transform, value: value))
