@@ -1,29 +1,51 @@
+import AccountCore
 import ComposableArchitecture
 import IdentifiedCollections
+import SharedModels
 import SmoothieCore
 import SwiftUI
 import SwiftUIHelpers
 
 public struct AppState: Equatable {
+  var account: AccountState
+  var favoritesSelection: Smoothie.ID?
+  var menuSelection: Smoothie.ID?
   var navigation: AppNavigation
-  var smoothies: IdentifiedArrayOf<SmoothieState>
   @BindableState var searchString: String
+  var smoothies: IdentifiedArrayOf<SmoothieState>
 
   public init(
-    navigation: AppNavigation = .sidebar(selection: nil, isPresentingRewards: false),
+    account: AccountState = .guest(),
+    favoritesSelection: Smoothie.ID? = nil,
+    menuSelection: Smoothie.ID? = nil,
+    navigation: AppNavigation = .tab(current: .menu, previous: nil),
     searchString: String = "",
     smoothies: IdentifiedArrayOf<SmoothieState> = []
   ) {
+    self.account = account
+    self.favoritesSelection = favoritesSelection
+    self.menuSelection = menuSelection
     self.navigation = navigation
     self.searchString = searchString
     self.smoothies = smoothies
   }
 
-  var menu: String = ""
-  // Account
-  // Search
-  // SmoothieState
-  // Unique Selection.ID
+  var menu: MenuState {
+    get {
+      MenuState(
+        account: self.account,
+        selection: self.menuSelection,
+        searchString: self.searchString,
+        smoothies: self.smoothies
+      )
+    }
+    set {
+      self.account = newValue.account
+      self.menuSelection = newValue.selection
+      self.searchString = newValue.searchString
+      self.smoothies = newValue.smoothies
+    }
+  }
 
   var favorites: String = ""
   // Account
@@ -44,18 +66,28 @@ public struct AppState: Equatable {
 
 public enum AppAction: Equatable, BindableAction {
   case binding(BindingAction<AppState>)
+  case menu(MenuAction)
 }
 
 public struct AppEnvironment {
   public init() {}
 }
 
-public let appReducer = Reducer<AppState, AppAction, AppEnvironment> { state, action, environment in
-  switch action {
-  case .binding:
-    return .none
+public let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
+  menuReducer.pullback(
+    state: \.menu,
+    action: /AppAction.menu,
+    environment: { _ in }
+  ),
+  Reducer { state, action, environment in
+    switch action {
+    case .menu:
+      return .none
+    case .binding:
+      return .none
+    }
   }
-}.binding()
+).binding()
 
 public struct AppView: View {
   let store: Store<AppState, AppAction>
@@ -110,4 +142,10 @@ extension EnvironmentValues {
     #endif
     return .sidebar
   }
+}
+
+extension AppState {
+  public static let mock = Self(
+    smoothies: .mock
+  )
 }

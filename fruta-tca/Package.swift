@@ -12,8 +12,16 @@ let package = Package(
       targets: ["AppFeature"]
     ),
     .library(
-      name: "OrderCore",
-      targets: ["OrderCore"]
+      name: "AccountCore",
+      targets: ["AccountCore"]
+    ),
+    .library(
+      name: "OrderFeature",
+      targets: ["OrderFeature"]
+    ),
+    .library(
+      name: "RewardsFeature",
+      targets: ["RewardsFeature"]
     ),
     .library(
       name: "SmoothieCore",
@@ -23,6 +31,10 @@ let package = Package(
       name: "SwiftUIHelpers",
       targets: ["SwiftUIHelpers"]
     ),
+    .library(
+      name: "TCAHelpers",
+      targets: ["TCAHelpers"]
+    ),
   ],
   dependencies: [
     .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", from: "0.27.0"),
@@ -31,14 +43,31 @@ let package = Package(
     .target(
       name: "AppFeature",
       dependencies: [
+        "AccountCore",
         "SmoothieCore",
         "SwiftUIHelpers",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),
     .target(
-      name: "OrderCore",
+      name: "AccountCore",
       dependencies: [
+        "SharedModels",
+        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+      ]
+    ),
+    .target(
+      name: "OrderFeature",
+      dependencies: [
+        "AccountCore",
+        "SharedModels",
+        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+      ]
+    ),
+    .target(
+      name: "RewardsFeature",
+      dependencies: [
+        "AccountCore",
         "SharedModels",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
@@ -51,12 +80,20 @@ let package = Package(
       name: "SmoothieCore",
       dependencies: [
         "SharedModels",
+        "AccountCore",
+        "TCAHelpers",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),
     .target(
       name: "SwiftUIHelpers",
       dependencies: []
+    ),
+    .target(
+      name: "TCAHelpers",
+      dependencies: [
+        .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
+      ]
     ),
   ]
 )

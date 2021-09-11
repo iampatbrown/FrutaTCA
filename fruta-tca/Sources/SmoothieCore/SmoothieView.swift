@@ -22,6 +22,16 @@ public enum SmoothieAction: Equatable, BindableAction {
   case binding(BindingAction<SmoothieState>)
 }
 
+public let smoothieReducer = Reducer<SmoothieState, SmoothieAction, Void> { state, action, _ in
+  switch action {
+  case .toggleFavorite:
+    state.isFavorite.toggle()
+    return .none
+  case .binding:
+    return .none
+  }
+}.binding()
+
 struct SmoothieView: View {
   let store: Store<SmoothieState, SmoothieAction>
   @ObservedObject var viewStore: ViewStore<SmoothieState, SmoothieAction>
@@ -37,7 +47,7 @@ struct SmoothieView: View {
       .toolbar {
         SmoothieFavoriteButton(isFavorite: viewStore.$isFavorite)
       }.sheet(isPresented: .constant(false)) {
-        Text("OrderPlacedView")
+        Text("OrderPlacedView") // TODO: Implement OrderPlacedView
       }.alert(isPresented: .constant(false)) {
         Alert(
           title: Text("Payments Disabled"),
@@ -82,6 +92,6 @@ struct SmoothieView: View {
   }
 
   var bottomBar: some View {
-    Text("Bottom Bar")
+    Text("Bottom Bar") // TODO: Implement RedeemSmoothie + PaymentButton
   }
 }

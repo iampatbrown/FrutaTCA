@@ -11,8 +11,6 @@
 		23B0D1DB26E9906500103AAB /* AppFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 23B0D1DA26E9906500103AAB /* AppFeature */; };
 		23FCC1F626E825CE00297615 /* FrutaTCAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FCC1E826E825CD00297615 /* FrutaTCAApp.swift */; };
 		23FCC1F726E825CE00297615 /* FrutaTCAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FCC1E826E825CD00297615 /* FrutaTCAApp.swift */; };
-		23FCC1F826E825CE00297615 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FCC1E926E825CD00297615 /* ContentView.swift */; };
-		23FCC1F926E825CE00297615 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FCC1E926E825CD00297615 /* ContentView.swift */; };
 		23FCC1FA26E825CE00297615 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23FCC1EA26E825CE00297615 /* Assets.xcassets */; };
 		23FCC1FB26E825CE00297615 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23FCC1EA26E825CE00297615 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -20,7 +18,6 @@
 /* Begin PBXFileReference section */
 		2324619F26E8A4D400BE873E /* FrutaTCA--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "FrutaTCA--iOS--Info.plist"; sourceTree = "<group>"; };
 		23FCC1E826E825CD00297615 /* FrutaTCAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrutaTCAApp.swift; sourceTree = "<group>"; };
-		23FCC1E926E825CD00297615 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		23FCC1EA26E825CE00297615 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23FCC1EF26E825CE00297615 /* FrutaTCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrutaTCA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23FCC1F526E825CE00297615 /* FrutaTCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrutaTCA.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,7 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				23FCC1E826E825CD00297615 /* FrutaTCAApp.swift */,
-				23FCC1E926E825CD00297615 /* ContentView.swift */,
 				23FCC1EA26E825CE00297615 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -188,7 +184,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23FCC1F826E825CE00297615 /* ContentView.swift in Sources */,
 				23FCC1F626E825CE00297615 /* FrutaTCAApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,7 +192,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23FCC1F926E825CE00297615 /* ContentView.swift in Sources */,
 				23FCC1F726E825CE00297615 /* FrutaTCAApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,17 +1,18 @@
 import AppFeature
+import ComposableArchitecture
 import SwiftUI
 
 @main
 struct FrutaTCAApp: App {
+  let store = Store(
+    initialState: .mock,
+    reducer: appReducer.debug(actionFormat: .labelsOnly),
+    environment: AppEnvironment()
+  )
+
   var body: some Scene {
     WindowGroup {
-      AppView(
-        store: .init(
-          initialState: .init(),
-          reducer: appReducer.debug(),
-          environment: .init()
-        )
-      )
+      AppView(store: self.store)
     }.commands {
       SidebarCommands()
     }

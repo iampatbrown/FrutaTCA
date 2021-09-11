@@ -13,22 +13,20 @@ struct SmoothieHeaderView: View {
     self.energy = state.energy.formatted(.measurement(width: .wide, usage: .food))
   }
 
-    var body: some View {
-      VStack(spacing: 0) {
-        Image(imageName)
-          .resizable()
-          .aspectRatio(contentMode: .fill)
+  var body: some View {
+    VStack(spacing: 0) {
+      Image(imageName)
+        .resizable()
+        .aspectRatio(contentMode: .fill)
 
-        VStack(alignment: .leading) {
-          Text(description)
-          Text(energy)
-            .font(.subheadline)
-            .foregroundStyle(.secondary)
-        }
-        .padding()
-        .frame(maxWidth: .infinity, alignment: .leading)
+      VStack(alignment: .leading) {
+        Text(description)
+        Text(energy)
+          .font(.subheadline)
+          .foregroundStyle(.secondary)
       }
+      .padding()
+      .frame(maxWidth: .infinity, alignment: .leading)
     }
+  }
 }
-
-

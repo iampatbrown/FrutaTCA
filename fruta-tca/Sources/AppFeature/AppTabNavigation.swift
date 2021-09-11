@@ -1,4 +1,5 @@
 import ComposableArchitecture
+import SmoothieCore
 import SwiftUI
 
 public enum AppTab: Equatable {
@@ -28,7 +29,7 @@ struct AppTabNavigationView: View {
 
       TabView(selection: viewStore.$selection) {
         NavigationView {
-          Text("SmoothieMenu")
+          SmoothieMenu(store: self.store.scope(state: \.menu, action: AppAction.menu))
         }
         .tabItem {
           Label("Menu", systemImage: "list.bullet")
@@ -58,7 +59,7 @@ struct AppTabNavigationView: View {
           Label("Recipes", systemImage: "book.closed.fill")
         }
         .tag(AppTab.recipes)
-      }
+      }.navigationViewStyle(.stack)
     }
   }
 }
