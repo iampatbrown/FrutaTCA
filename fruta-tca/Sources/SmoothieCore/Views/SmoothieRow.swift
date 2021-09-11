@@ -1,19 +1,19 @@
 import SwiftUI
 
-struct SmoothieRow: View {
+ public struct SmoothieRow: View {
   let imageName: String
   let title: String
   let listedIngredients: String
   let energy: String
 
-  init(state: SmoothieState) { // TODO: Is it okay to do this? maybe no...
+   public init(state: SmoothieState) { // TODO: Is it okay to do this? maybe no...
     self.imageName = state.id
     self.title = state.title
     self.listedIngredients = state.listedIngredients
     self.energy = state.energy.formatted(.measurement(width: .wide, usage: .food))
   }
 
-  var body: some View {
+   public var body: some View {
     HStack(alignment: .top) {
       Image(imageName)
         .resizable()

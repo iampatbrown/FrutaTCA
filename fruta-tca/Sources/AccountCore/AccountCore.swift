@@ -66,6 +66,15 @@ public enum AccountState: Equatable {
       self.unstampedPoints = unstampedPoints
     }
 
+    public var pointsEarned: Int {
+      orderHistory.reduce(0) { $0 + $1.points }
+    }
+
+
+    public var unspentPoints: Int {
+      pointsEarned - pointsSpent
+    }
+
   }
 
   public var isGuest: Bool {

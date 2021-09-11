@@ -1,43 +1,48 @@
 import AccountCore
 import ComposableArchitecture
 import SharedModels
+import SmoothieCore
 import SwiftUI
-import TCAHelpers
 
-public struct SmoothieListState: Equatable {
+public struct RecipeListState: Equatable {
   public var account: AccountState
+  public var allRecipesUnlocked: Bool
   @BindableState public var searchString: String
   @BindableState public var selection: Smoothie.ID?
-  public var smoothies: IdentifiedArrayOf<SmoothieState>
+  public var recipes: IdentifiedArrayOf<RecipeState>
 
   public init(
     account: AccountState = .guest(),
+    allRecipesUnlocked: Bool = false,
     selection: Smoothie.ID? = nil,
     searchString: String = "",
-    smoothies: IdentifiedArrayOf<SmoothieState> = .mock
+    recipes: IdentifiedArrayOf<RecipeState> = .mock
   ) {
     self.account = account
+    self.allRecipesUnlocked = allRecipesUnlocked
     self.searchString = searchString
     self.selection = selection
-    self.smoothies = smoothies
+    self.recipes = recipes
   }
 
-  var listedSmoothies: IdentifiedArrayOf<SmoothieState> {
-    smoothies
+  var listedRecipes: IdentifiedArrayOf<RecipeState> {
+    recipes
       .filter { $0.matches(searchString) }
+      .filter { allRecipesUnlocked || $0.hasFreeRecipe }
       .sorted(by: { $0.title.localizedCompare($1.title) == .orderedAscending })
   }
 }
 
-public enum SmoothieListAction: Equatable, BindableAction {
-  case binding(BindingAction<SmoothieListState>)
-  case smoothie(id: Smoothie.ID, action: SmoothieAction)
+public enum RecipeListAction: Equatable, BindableAction {
+  case binding(BindingAction<RecipeListState>)
+  case smoothie(id: Smoothie.ID, action: RecipeAction)
 }
 
-public let smoothieListReducer = Reducer<SmoothieListState, SmoothieListAction, Void>.combine(
-  smoothieReducer.forEach(
-    state: \.smoothies,
-    action: /SmoothieListAction.smoothie,
+
+public let recipeListReducer = Reducer<RecipeListState, RecipeListAction, Void>.combine(
+  recipeReducer.forEach(
+    state: \.recipes,
+    action: /RecipeListAction.smoothie,
     environment: { $0 }
   ),
   Reducer { state, action, _ in
@@ -45,18 +50,33 @@ public let smoothieListReducer = Reducer<SmoothieListState, SmoothieListAction, 
   }
 ).binding()
 
-public struct SmoothieList: View {
-  let store: Store<SmoothieListState, SmoothieListAction>
+
+
+public struct RecipeList: View {
+  let store: Store<RecipeListState, RecipeListAction>
+
+  public init(store: Store<RecipeListState, RecipeListAction>) {
+    self.store = store
+  }
 
   public var body: some View {
     WithViewStore(self.store) { viewStore in
       List {
-        ForEachStore(
-          self.store.scope(state: \.listedSmoothies, action: SmoothieListAction.smoothie(id:action:))
-        ) { childStore in
-          SmoothieNavigationLink(store: childStore, selection: viewStore.$selection)
+        #if os(iOS)
+        if !viewStore.allRecipesUnlocked {
+          Section {
+            Text("Unlock Button")
+          }
         }
-      }.searchable(text: viewStore.$searchString) {
+        #endif
+        ForEachStore(
+          self.store.scope(state: \.listedRecipes, action: RecipeListAction.smoothie(id:action:))
+        ) { childStore in
+          RecipeNavigationLink(store: childStore, selection: viewStore.$selection)
+        }
+      }
+      .navigationTitle(Text("Recipes"))
+      .searchable(text: viewStore.$searchString) {
         Text(viewStore.searchString)
 //        ForEach(viewStore.searchSuggestions) { ... }
       }
@@ -64,7 +84,7 @@ public struct SmoothieList: View {
   }
 }
 
-extension SmoothieState {
+extension RecipeState {
   public func matches(_ searchString: String) -> Bool {
     searchString.isEmpty ||
       title.localizedCaseInsensitiveContains(searchString) ||
@@ -74,33 +94,36 @@ extension SmoothieState {
   }
 }
 
-extension IdentifiedArray where ID == Smoothie.ID, Element == SmoothieState {
+extension IdentifiedArray where ID == Smoothie.ID, Element == RecipeState {
   public static let mock: Self = [
-    SmoothieState(
+    RecipeState(
       id: "berry-blue",
       title: "Berry Blue",
       description: "*Filling* and *refreshing*, this smoothie will fill you with joy!",
       measuredIngredients: [],
       hasFreeRecipe: true,
       isFavorite: false,
+      smoothieCount: 1,
       energy: .init(value: 5, unit: .kilocalories)
     ),
-    SmoothieState(
+    RecipeState(
       id: "one-in-a-melon",
       title: "One in a Melon",
       description: "Feel special this summer with the *coolest* drink in our menu!",
       measuredIngredients: [],
       hasFreeRecipe: false,
       isFavorite: false,
+      smoothieCount: 1,
       energy: .init(value: 4, unit: .kilocalories)
     ),
-    SmoothieState(
+    RecipeState(
       id: "lemonberry",
       title: "Lemonberry",
       description: "A refreshing blend that's a *real kick*!",
       measuredIngredients: [],
       hasFreeRecipe: true,
       isFavorite: false,
+      smoothieCount: 1,
       energy: .init(value: 3, unit: .kilocalories)
     ),
   ]

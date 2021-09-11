@@ -7,34 +7,14 @@ let package = Package(
   name: "fruta-tca",
   platforms: [.macOS(.v12), .iOS(.v15)],
   products: [
-    .library(
-      name: "AppFeature",
-      targets: ["AppFeature"]
-    ),
-    .library(
-      name: "AccountCore",
-      targets: ["AccountCore"]
-    ),
-    .library(
-      name: "OrderFeature",
-      targets: ["OrderFeature"]
-    ),
-    .library(
-      name: "RewardsFeature",
-      targets: ["RewardsFeature"]
-    ),
-    .library(
-      name: "SmoothieCore",
-      targets: ["SmoothieCore"]
-    ),
-    .library(
-      name: "SwiftUIHelpers",
-      targets: ["SwiftUIHelpers"]
-    ),
-    .library(
-      name: "TCAHelpers",
-      targets: ["TCAHelpers"]
-    ),
+    .library(name: "AppFeature", targets: ["AppFeature"]),
+    .library(name: "AccountCore", targets: ["AccountCore"]),
+    .library(name: "OrderFeature", targets: ["OrderFeature"]),
+    .library(name: "RecipesFeature", targets: ["RecipesFeature"]),
+    .library(name: "RewardsFeature", targets: ["RewardsFeature"]),
+    .library(name: "SmoothieCore", targets: ["SmoothieCore"]),
+    .library(name: "SwiftUIHelpers", targets: ["SwiftUIHelpers"]),
+    .library(name: "TCAHelpers", targets: ["TCAHelpers"]),
   ],
   dependencies: [
     .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", from: "0.27.0"),
@@ -46,6 +26,8 @@ let package = Package(
         "AccountCore",
         "SmoothieCore",
         "SwiftUIHelpers",
+        "RecipesFeature",
+        "RewardsFeature",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),
@@ -60,6 +42,15 @@ let package = Package(
       name: "OrderFeature",
       dependencies: [
         "AccountCore",
+        "SharedModels",
+        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+      ]
+    ),
+    .target(
+      name: "RecipesFeature",
+      dependencies: [
+        "AccountCore",
+        "SmoothieCore",
         "SharedModels",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
@@ -92,7 +83,7 @@ let package = Package(
     .target(
       name: "TCAHelpers",
       dependencies: [
-        .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
+        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),
   ]

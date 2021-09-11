@@ -31,9 +31,9 @@ public struct RewardsView: View {
       ZStack {
         Text("""
         Rewards Card
-        totalStamps: \(viewStore.totalStamps),
-        animatedStamps: \(viewStore.animatedStamps),
-        isGuest: \(viewStore.isGuest)
+        totalStamps: \(viewStore.totalStamps)
+        animatedStamps: \(viewStore.animatedStamps)
+        isGuest: \(viewStore.isGuest ? "Yes" : "No")
         """)
       }
       .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -44,16 +44,11 @@ public struct RewardsView: View {
             Text("SignInWithAppleButton")
               .frame(minWidth: 100, maxWidth: 400)
           }
-      }
-      .onDisappear {
-        viewStore.send(.clearUnstampedPoints)
+        }
+        .onDisappear {
+          viewStore.send(.clearUnstampedPoints)
+        }
       }
     }
-  }
-}
-
-struct RewardsView_Previews: PreviewProvider {
-  static var previews: some View {
-    RewardsView()
   }
 }

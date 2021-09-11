@@ -1,5 +1,6 @@
 import ComposableArchitecture
 
+// TODO: Should I not do this because it conflicts with `.sorted() -> [Element]`
 extension IdentifiedArray {
   public func sorted(
     by areInIncreasingOrder: (Element, Element) throws -> Bool

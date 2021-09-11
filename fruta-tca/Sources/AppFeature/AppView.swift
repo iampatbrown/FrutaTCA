@@ -1,6 +1,8 @@
 import AccountCore
 import ComposableArchitecture
 import IdentifiedCollections
+import RecipesFeature
+import RewardsFeature
 import SharedModels
 import SmoothieCore
 import SwiftUI
@@ -8,14 +10,17 @@ import SwiftUIHelpers
 
 public struct AppState: Equatable {
   var account: AccountState
+  var allRecipesUnlocked: Bool
   var favoritesSelection: Smoothie.ID?
   var menuSelection: Smoothie.ID?
   var navigation: AppNavigation
+  var recipeSelection: Smoothie.ID?
   @BindableState var searchString: String
   var smoothies: IdentifiedArrayOf<SmoothieState>
 
   public init(
     account: AccountState = .guest(),
+    allRecipesUnlocked: Bool = false,
     favoritesSelection: Smoothie.ID? = nil,
     menuSelection: Smoothie.ID? = nil,
     navigation: AppNavigation = .tab(current: .menu, previous: nil),
@@ -23,6 +28,7 @@ public struct AppState: Equatable {
     smoothies: IdentifiedArrayOf<SmoothieState> = []
   ) {
     self.account = account
+    self.allRecipesUnlocked = allRecipesUnlocked
     self.favoritesSelection = favoritesSelection
     self.menuSelection = menuSelection
     self.navigation = navigation
@@ -47,26 +53,57 @@ public struct AppState: Equatable {
     }
   }
 
-  var favorites: String = ""
-  // Account
-  // Search
-  // SmoothieState ---> Filtered.isFavorites
-  // Unique Selection.ID
+  var favorites: FavoritesState {
+    get {
+      FavoritesState(
+        account: self.account,
+        selection: self.favoritesSelection,
+        searchString: self.searchString,
+        smoothies: self.smoothies
+      )
+    }
+    set {
+      self.account = newValue.account
+      self.favoritesSelection = newValue.selection
+      self.searchString = newValue.searchString
+      self.smoothies = newValue.smoothies
+    }
+  }
 
-  var rewards: String = ""
-  // Account
+  var rewards: RewardsState {
+    get {
+      .init(account: self.account)
+    }
+    set {
+      self.account = newValue.account
+    }
+  }
 
-  var recipes: String = ""
-  // Search
-  // SmoothieState ---> RecipeState
-  // Toggle Favorite
-  // Unique Selection.ID
-  // StoreIntegration
+  var recipes: RecipeListState {
+    get {
+      RecipeListState(
+        account: self.account,
+        allRecipesUnlocked: self.allRecipesUnlocked,
+        selection: self.recipeSelection,
+        searchString: self.searchString,
+        recipes: .init(uniqueElements: self.smoothies.map(\.toRecipeState))
+      )
+    }
+    set {
+      self.account = newValue.account
+      self.recipeSelection = newValue.selection
+      self.searchString = newValue.searchString
+      self.smoothies = .init(uniqueElements: newValue.recipes.map(\.toSmoothieState))
+    }
+  }
 }
 
 public enum AppAction: Equatable, BindableAction {
   case binding(BindingAction<AppState>)
+  case favorites(FavoritesAction)
   case menu(MenuAction)
+  case recipes(RecipeListAction)
+  case rewards(RewardsAction)
 }
 
 public struct AppEnvironment {
@@ -79,10 +116,31 @@ public let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
     action: /AppAction.menu,
     environment: { _ in }
   ),
+  favoritesReducer.pullback(
+    state: \.favorites,
+    action: /AppAction.favorites,
+    environment: { _ in }
+  ),
+  // TODO: rewardsReducer
+  recipeListReducer.pullback(
+    state: \.recipes,
+    action: /AppAction.recipes,
+    environment: { _ in }
+  ),
   Reducer { state, action, environment in
     switch action {
+    case .favorites:
+      return .none
+
     case .menu:
       return .none
+
+    case .recipes:
+      return .none
+
+    case .rewards:
+      return .none
+
     case .binding:
       return .none
     }

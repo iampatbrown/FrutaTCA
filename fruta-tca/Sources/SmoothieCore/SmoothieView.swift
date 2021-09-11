@@ -10,11 +10,29 @@ public struct SmoothieState: Equatable, Identifiable {
   public var hasFreeRecipe: Bool
   @BindableState public var isFavorite: Bool
 
+  public var energy: Measurement<UnitEnergy>
+
+  public init(
+    id: Smoothie.ID,
+    title: String,
+    description: AttributedString,
+    measuredIngredients: [MeasuredIngredient],
+    hasFreeRecipe: Bool,
+    isFavorite: Bool,
+    energy: Measurement<UnitEnergy>
+  ) {
+    self.id = id
+    self.title = title
+    self.description = description
+    self.measuredIngredients = measuredIngredients
+    self.hasFreeRecipe = hasFreeRecipe
+    self.isFavorite = isFavorite
+    self.energy = energy
+  }
+
   public var menuIngredients: [MeasuredIngredient] {
     measuredIngredients.filter { $0.id != "water" } // TODO: Use water id
   }
-
-  public var energy: Measurement<UnitEnergy>
 }
 
 public enum SmoothieAction: Equatable, BindableAction {

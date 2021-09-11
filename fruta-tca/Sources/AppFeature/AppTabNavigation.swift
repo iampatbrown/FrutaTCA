@@ -1,6 +1,8 @@
 import ComposableArchitecture
+import RewardsFeature
 import SmoothieCore
 import SwiftUI
+import RecipesFeature
 
 public enum AppTab: Equatable {
   case menu
@@ -37,7 +39,7 @@ struct AppTabNavigationView: View {
         .tag(AppTab.menu)
 
         NavigationView {
-          Text("FavoriteSmoothies")
+          FavoriteSmoothies(store: self.store.scope(state: \.favorites, action: AppAction.favorites))
         }
         .tabItem {
           Label("Favorites", systemImage: "heart.fill")
@@ -45,7 +47,7 @@ struct AppTabNavigationView: View {
         .tag(AppTab.favorites)
 
         NavigationView {
-          Text("RewardsView")
+          RewardsView(store: self.store.scope(state: \.rewards, action: AppAction.rewards))
         }
         .tabItem {
           Label("Rewards", systemImage: "seal.fill")
@@ -53,7 +55,7 @@ struct AppTabNavigationView: View {
         .tag(AppTab.rewards)
 
         NavigationView {
-          Text("RecipeList")
+          RecipeList(store: self.store.scope(state: \.recipes, action: AppAction.recipes))
         }
         .tabItem {
           Label("Recipes", systemImage: "book.closed.fill")
